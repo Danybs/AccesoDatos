@@ -37,61 +37,61 @@ public class DatosAemetV2 {
 			// Se obtiene el inputStream de la foto web y se abre el fichero
 			// local
 			BufferedReader is = new BufferedReader(new InputStreamReader(url.openStream()));
-
 			BufferedWriter writeO = new BufferedWriter(new FileWriter("datosAemet.csv",true));
 			BufferedReader readC = new BufferedReader(new FileReader("datosAemet.csv"));
 			// Lectura del CSV y escritura en local
 			String ReadO = is.readLine();
-			String ReadCO = readC.readLine();
-			Boolean check=false;
-			while (is.readLine() != null) {	
-				writeO.write(ReadO);
-				writeO.newLine();
-				readO=is.readLine();
-				
-				/*while (readC.readLine()!=null) {
-					if (ReadO.equals(ReadCO)) {
-						check=true;
-					}
-				}
-				if(!check) {
-					
-				}*/
-			}
-			
-			
+			String ReadC = readC.readLine();
 
+			Boolean check = false;
+			while (ReadO != null) {
+				while (ReadC != null) {
+					if (ReadO.equals(ReadC)) {
+						check = true;
+					}
+					ReadC = readC.readLine();
+				}
+				if (check==true) {
+					writeO.append(ReadO);
+					writeO.newLine();
+					check = false;
+				}
+				ReadO = is.readLine();
+			}	
 			// cierre de conexion y fichero
 			is.close();
 			writeO.close();
-			readC.close();
 			writeO.flush();
+			readC.close();
+
+			// cierre de conexion y fichero
+			is.close();
 
 			// lectura del fichero
 			BufferedReader read = new BufferedReader(new FileReader("datosAemet.csv"));
-			String line = read.readLine();// Lectura ciudad
+			String line = read.readLine();//Lectura ciudad
 			String[] ciudad = line.split("\"");
 			for (int i = 0; i < ciudad.length; i++) {
 				System.out.println(ciudad[i]);
 			}
-			line = read.readLine();// Lectura update
+			line = read.readLine();//Lectura update
 			System.out.println(line);
-			line = read.readLine();// Espacio en blanco
+			line = read.readLine();//Espacio en blanco	
 			System.out.println(line);
-			line = read.readLine();// Lectura cabecera
+			line = read.readLine();//Lectura cabecera
 			String[] head = line.split(",");
 			for (int i = 0; i < head.length; i++) {
-				System.out.print(head[i] + " ");
+				System.out.print(head[i]+" ");
 			}
 			System.out.println();
 			ArrayList<String> aL = new ArrayList<String>();
-			while ((line = read.readLine()) != null) {
+			while((line=read.readLine())!=null){
 				aL.add(line);
 			}
-			for (int i = aL.size() - 1; i > 0; i--) {
+			for (int i = aL.size()-1; i>0; i--) {
 				System.out.println(aL.get(i));
 			}
-
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -99,3 +99,8 @@ public class DatosAemetV2 {
 	}
 
 }
+
+
+
+
+
