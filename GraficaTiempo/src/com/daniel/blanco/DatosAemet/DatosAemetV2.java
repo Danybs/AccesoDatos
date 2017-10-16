@@ -18,6 +18,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class DatosAemetV2 {
@@ -27,6 +30,7 @@ public class DatosAemetV2 {
 			// URL
 			URL url = new URL(
 					"http://www.aemet.es/es/eltiempo/observacion/ultimosdatos_1249X_datos-horarios.csv?k=ast&l=1249X&datos=det&w=0&f=temperatura&x=h24");
+			Path path = Paths.get("datosAemet.csv");
 
 			// establecemos conexion
 			URLConnection urlCon = url.openConnection();
@@ -39,27 +43,46 @@ public class DatosAemetV2 {
 			BufferedReader is = new BufferedReader(new InputStreamReader(url.openStream()));
 			BufferedWriter writeO = new BufferedWriter(new FileWriter("datosAemet.csv",true));
 			BufferedReader readC = new BufferedReader(new FileReader("datosAemet.csv"));
-			// Lectura del CSV y escritura en local
-			String ReadO = is.readLine();
-			String ReadC = readC.readLine();
-
-			Boolean check = false;
-			while (ReadO != null) {
-				while (ReadC != null) {
-					if (ReadO.equals(ReadC)) {
-						check = true;
+			// Lectura del CSV y escritura en local						
+			if (Files.exists(path)) {
+				String host = is.readLine();
+				String local;
+				Boolean check = true;
+				while (host != null) {	
+					local = readC.readLine();
+					while (local != null) {
+						if (host.equals(local) && !host.contains("Oviedo") && !host.contains("Fecha y hora") && !host.contains("Actualizado: ") && !host.contains("\\s+")) {
+							check = false;
+						}
+						local = readC.readLine();
 					}
-					ReadC = readC.readLine();
+					if (check==true) {
+						writeO.write(host);
+						writeO.newLine();
+						
+						check = false;
+					}
+					host = is.readLine();
+					readC.reset();
 				}
-				if (check==true) {
-					writeO.append(ReadO);
-					writeO.newLine();
-					check = false;
+			}
+			else {
+				InputStream is1 = urlCon.getInputStream();
+				FileOutputStream fos = new FileOutputStream("datosAemet.csv");
+				//BufferedReader readC = new BufferedReader(new FileReader("datosAemet.csv"));
+				// Lectura del CSV y escritura en local
+				byte[] array = new byte[1000]; // buffer temporal de lectura
+				int leido = is1.read(array);
+				while (leido > 0) {
+					fos.write(array, 0, leido);
+					leido = is1.read(array);
 				}
-				ReadO = is.readLine();
-			}	
+				fos.close();
+				is1.close();
+			}
 			// cierre de conexion y fichero
 			is.close();
+			
 			writeO.close();
 			writeO.flush();
 			readC.close();
@@ -69,29 +92,29 @@ public class DatosAemetV2 {
 
 			// lectura del fichero
 			BufferedReader read = new BufferedReader(new FileReader("datosAemet.csv"));
-			String line = read.readLine();//Lectura ciudad
+			String line = read.readLine();// Lectura ciudad
 			String[] ciudad = line.split("\"");
 			for (int i = 0; i < ciudad.length; i++) {
 				System.out.println(ciudad[i]);
 			}
-			line = read.readLine();//Lectura update
+			line = read.readLine();// Lectura update
 			System.out.println(line);
-			line = read.readLine();//Espacio en blanco	
+			line = read.readLine();// Espacio en blanco
 			System.out.println(line);
-			line = read.readLine();//Lectura cabecera
+			line = read.readLine();// Lectura cabecera
 			String[] head = line.split(",");
 			for (int i = 0; i < head.length; i++) {
-				System.out.print(head[i]+" ");
+				System.out.print(head[i] + " ");
 			}
 			System.out.println();
 			ArrayList<String> aL = new ArrayList<String>();
-			while((line=read.readLine())!=null){
+			while ((line = read.readLine()) != null) {
 				aL.add(line);
 			}
-			for (int i = aL.size()-1; i>0; i--) {
+			for (int i = aL.size() - 1; i > 0; i--) {
 				System.out.println(aL.get(i));
 			}
-		
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -99,8 +122,3 @@ public class DatosAemetV2 {
 	}
 
 }
-
-
-
-
-
