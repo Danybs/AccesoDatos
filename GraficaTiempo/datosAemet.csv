@@ -1,7 +1,8 @@
 "Oviedo"
-Actualizado: martes, 17 octubre 2017 a las 17:22 hora oficial
+Actualizado: martes, 17 octubre 2017 a las 18:22 hora oficial
 
 "Fecha y hora oficial","Temperatura (ºC)","Velocidad del viento (km/h)","Dirección del viento","Racha (km/h)","Dirección de racha","Precipitación (mm)","Presión (hPa)","Tendencia (hPa)","Humedad (%)"
+"17/10/2017 18:00","14.9","10","Nordeste","24","Nordeste","0.0","974.6","-0.6","83"
 "17/10/2017 17:00","15.3","6","Este","14","Nordeste","0.0","974.6","-0.9","93"
 "17/10/2017 16:00","15.4","9","Este","15","Sudeste","0.0","974.7","-1.0","92"
 "17/10/2017 15:00","16.0","7","Este","15","Este","0.4","975.2","-0.8","91"
@@ -25,4 +26,4 @@ Actualizado: martes, 17 octubre 2017 a las 17:22 hora oficial
 "16/10/2017 21:00","15.6","5","Este","13","Nordeste","0.0","982.5","-0.4","87"
 "16/10/2017 20:00","15.9","8","Nordeste","15","Nordeste","0.0","982.6","-0.5","82"
 "16/10/2017 19:00","15.8","6","Nordeste","17","Nordeste","0.0","982.8","-0.4","82"
-"16/10/2017 18:00","15.8","8","Nordeste","17","Nordeste","0.0","982.9","-0.4","80"
+
