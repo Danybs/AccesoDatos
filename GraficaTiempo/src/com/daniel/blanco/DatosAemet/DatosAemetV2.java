@@ -20,8 +20,12 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.TreeSet;
 //https://stackoverflow.com/questions/4216745/java-string-to-date-conversion#4216767
 //ordenar por fecha
@@ -57,6 +61,7 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 				is.close();
 				fos.close();
 			}
+			
 			ArrayList<String> Copia = new ArrayList<String>(); //Array donde se almacenaran los nuevos datos, da igual orden
 			String city;
 			String update;
@@ -94,6 +99,9 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 			for (int i = 0; i < Copia.size(); i++) {
 				tS.add(Copia.get(i));
 			}
+			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.GERMANY);//Damos formato a la fecha
+			Date dateTxt;
+			
 			//Recorremos el TreeSet con los nuevos valores y los almacenamos en un TXT
 			Iterator<String> it = tS.iterator();
 			String newDate;
