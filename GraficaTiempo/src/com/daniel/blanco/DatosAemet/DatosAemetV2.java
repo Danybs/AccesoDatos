@@ -99,8 +99,8 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 			for (int i = 0; i < Copia.size(); i++) {
 				tS.add(Copia.get(i));
 			}
-			DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.GERMANY);//Damos formato a la fecha
-			Date dateTxt;
+			//DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.GERMANY);//Damos formato a la fecha
+			//Date dateTxt;
 			
 			//Recorremos el TreeSet con los nuevos valores y los almacenamos en un TXT
 			Iterator<String> it = tS.iterator();
