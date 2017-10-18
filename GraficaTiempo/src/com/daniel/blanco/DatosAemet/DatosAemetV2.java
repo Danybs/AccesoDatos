@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +30,7 @@ import java.util.Locale;
 import java.util.TreeSet;
 //https://stackoverflow.com/questions/4216745/java-string-to-date-conversion#4216767
 //ordenar por fecha
-public class DatosAemetV2 implements Comparable<Fecha> {
+public class DatosAemetV2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
@@ -62,23 +63,25 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 				fos.close();
 			}
 			
-			ArrayList<String> Copia = new ArrayList<String>(); //Array donde se almacenaran los nuevos datos, da igual orden
+			//Array donde se almacenaran los nuevos datos
 			String city;
 			String update;
 			String whitespace;
 			String head;
-
-			// Lectura del fichero web y almacenamiento en ArrayList
 			BufferedReader is = new BufferedReader(new InputStreamReader(url.openStream()));
 			city = is.readLine();
 			update = is.readLine();
 			whitespace = is.readLine();
 			head = is.readLine();
-			String LCopy;
-			while ((LCopy = is.readLine()) != null) {
-				Copia.add(LCopy);
+			String line1 = is.readLine();
+			TreeSet<Dia> tS1 = new TreeSet<Dia>();
+			while ((line1 = is.readLine()) != null) {
+				String noob=line1.replaceAll("\"","");
+				Dia day=new Dia(noob.split(","));
+				tS1.add(day);
 			}
-
+			is.close();
+			
 			// Lectura del fichero local
 			BufferedReader read = new BufferedReader(new FileReader("datosAemet.csv"));
 
@@ -91,20 +94,18 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 			line = read.readLine();// Lectura cabecera
 			System.out.println(head); //Mostramos la nueva cabecera
 			//Almacenamos todas las lineas en un TreeSet y como no se pueden repetir solo nos aparecera un valor por fecha
-			TreeSet<String> tS = new TreeSet<String>();  
+			TreeSet<Dia> tS = new TreeSet<Dia>();
 			while ((line = read.readLine()) != null) {
-				tS.add(line);
-
+				String noob=line.replaceAll("\"","");
+				Dia day=new Dia(noob.split(","));
+				tS.add(day);
 			}
-			for (int i = 0; i < Copia.size(); i++) {
-				tS.add(Copia.get(i));
-			}
-			//DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.GERMANY);//Damos formato a la fecha
-			//Date dateTxt;
+			tS.addAll(tS1);
+			read.close();
 			
 			//Recorremos el TreeSet con los nuevos valores y los almacenamos en un TXT
-			Iterator<String> it = tS.iterator();
-			String newDate;
+			Iterator<Dia> it = tS.iterator();
+			Dia newDate;
 			BufferedWriter write = new BufferedWriter(new FileWriter("datosAemet.csv"));
 			write.write(city);
 			write.newLine();
@@ -114,11 +115,10 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 			write.newLine();
 			write.write(head);
 			write.newLine();
-			while (it.hasNext()) {
-				newDate = (String) it.next();
-				write.write(newDate);
+			for (Dia dia : tS) {
+				write.write(dia.toString());
 				write.newLine();
-				System.out.println(newDate);
+				System.out.println(dia);
 			}
 			read.close();
 			write.close();
@@ -127,15 +127,82 @@ public class DatosAemetV2 implements Comparable<Fecha> {
 		}
 
 	}
-
+}
+//"Fecha y hora oficial","Temperatura (ºC)","Velocidad del viento (km/h)","Dirección del viento","Racha (km/h)","Dirección de racha","Precipitación (mm)","Presión (hPa)","Tendencia (hPa)","Humedad (%)"
+//"16/10/2017 23:00","15.4","4","Este","10","Este","0.0","981.7","-0.9","88"
+class Dia implements Comparable<Dia>{
+	
+	DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.GERMANY);//Damos formato a la fecha
+	Date fechaYhora;
+	float temp;
+	float velVient;
+	String dirVient;
+	float racha;
+	String dirRach;
+	float precipi;
+	float presion;
+	float tendencia;
+	float humedad;
+	
 	@Override
-	public int compareTo(Fecha o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String toString() {
+		return "Dia [fechaYhora=" + fechaYhora + ", temp=" + temp + ", velVient=" + velVient + ", dirVient=" + dirVient
+				+ ", racha=" + racha + ", dirRach=" + dirRach + ", precipi=" + precipi + ", presion=" + presion
+				+ ", tendencia=" + tendencia + ", humedad=" + humedad + "]";
 	}
 
-}
-
-class Fecha {
+	public Dia(String campos[]) throws ParseException{
+		fechaYhora=format.parse(campos[0]);
+		temp=Float.parseFloat(campos[1]);
+		velVient=Float.parseFloat(campos[2]);
+		dirVient=String.valueOf(campos[3]);
+		racha=Float.parseFloat(campos[4]);
+		dirRach=String.valueOf(campos[5]);
+		precipi=Float.parseFloat(campos[6]);
+		presion=Float.parseFloat(campos[7]);
+		tendencia=Float.parseFloat(campos[8]);
+		humedad=Float.parseFloat(campos[9]);
+	}
+	
+	public DateFormat getFormat() {
+		return format;
+	}
+	public Date getFechaYhora() {
+		return fechaYhora;
+	}
+	public float getTemp() {
+		return temp;
+	}
+	public float getVelVient() {
+		return velVient;
+	}
+	public String getDirVient() {
+		return dirVient;
+	}
+	public float getRacha() {
+		return racha;
+	}
+	public String getDirRach() {
+		return dirRach;
+	}
+	public float getPrecipi() {
+		return precipi;
+	}
+	public float getPresion() {
+		return presion;
+	}
+	public float getTendencia() {
+		return tendencia;
+	}
+	public float getHumedad() {
+		return humedad;
+	}
+	
+	@Override
+	public int compareTo(Dia o) {
+		// TODO Auto-generated method stub
+		return getFechaYhora().compareTo(o.getFechaYhora());
+	}	
+	
 	
 }
