@@ -1,28 +1,54 @@
 "Oviedo"
-Actualizado: miércoles, 18 octubre 2017 a las 21:22 hora oficial
+Actualizado: jueves, 19 octubre 2017 a las 01:42 hora oficial
 
 "Fecha y hora oficial","Temperatura (ºC)","Velocidad del viento (km/h)","Dirección del viento","Racha (km/h)","Dirección de racha","Precipitación (mm)","Presión (hPa)","Tendencia (hPa)","Humedad (%)"
-Dia [fechaYhora=Fri Apr 09 22:00:00 CET 23, temp=13.0, velVient=10.0, dirVient=Este, racha=15.0, dirRach=Este, precipi=0.0, presion=974.5, tendencia=-0.3, humedad=87.0]
-Dia [fechaYhora=Fri Apr 09 23:00:00 CET 23, temp=12.5, velVient=4.0, dirVient=Sudeste, racha=12.0, dirRach=Este, precipi=0.0, presion=974.4, tendencia=-0.5, humedad=89.0]
-Dia [fechaYhora=Sat Apr 08 00:00:00 CET 24, temp=12.0, velVient=0.0, dirVient=Calma, racha=7.0, dirRach=Sur, precipi=0.0, presion=974.0, tendencia=-1.0, humedad=95.0]
-Dia [fechaYhora=Sat Apr 08 01:00:00 CET 24, temp=11.7, velVient=6.0, dirVient=Sur, racha=13.0, dirRach=Sudoeste, precipi=0.0, presion=973.3, tendencia=-1.2, humedad=97.0]
-Dia [fechaYhora=Sat Apr 08 02:00:00 CET 24, temp=11.5, velVient=6.0, dirVient=Sur, racha=10.0, dirRach=Sur, precipi=0.0, presion=972.5, tendencia=-1.9, humedad=97.0]
-Dia [fechaYhora=Sat Apr 08 03:00:00 CET 24, temp=11.5, velVient=4.0, dirVient=Noroeste, racha=10.0, dirRach=Sudoeste, precipi=0.0, presion=972.2, tendencia=-1.8, humedad=98.0]
-Dia [fechaYhora=Sat Apr 08 04:00:00 CET 24, temp=11.5, velVient=4.0, dirVient=Sur, racha=9.0, dirRach=Sudoeste, precipi=0.0, presion=971.8, tendencia=-1.5, humedad=97.0]
-Dia [fechaYhora=Sat Apr 08 05:00:00 CET 24, temp=11.7, velVient=4.0, dirVient=Sur, racha=8.0, dirRach=Sur, precipi=0.0, presion=971.2, tendencia=-1.3, humedad=97.0]
-Dia [fechaYhora=Sat Apr 08 06:00:00 CET 24, temp=11.7, velVient=2.0, dirVient=Noroeste, racha=8.0, dirRach=Sur, precipi=0.0, presion=970.4, tendencia=-1.8, humedad=96.0]
-Dia [fechaYhora=Sat Apr 08 07:00:00 CET 24, temp=11.3, velVient=5.0, dirVient=Oeste, racha=9.0, dirRach=Oeste, precipi=0.0, presion=970.2, tendencia=-1.6, humedad=97.0]
-Dia [fechaYhora=Sat Apr 08 08:00:00 CET 24, temp=11.9, velVient=4.0, dirVient=Oeste, racha=10.0, dirRach=Oeste, precipi=0.0, presion=970.0, tendencia=-1.2, humedad=94.0]
-Dia [fechaYhora=Sat Apr 08 09:00:00 CET 24, temp=11.9, velVient=6.0, dirVient=Oeste, racha=8.0, dirRach=Oeste, precipi=0.0, presion=970.0, tendencia=-0.4, humedad=93.0]
-Dia [fechaYhora=Sat Apr 08 10:00:00 CET 24, temp=11.8, velVient=7.0, dirVient=Oeste, racha=13.0, dirRach=Oeste, precipi=0.0, presion=970.5, tendencia=0.3, humedad=92.0]
-Dia [fechaYhora=Sat Apr 08 11:00:00 CET 24, temp=12.0, velVient=4.0, dirVient=Sudoeste, racha=10.0, dirRach=Oeste, precipi=1.2, presion=971.1, tendencia=1.1, humedad=95.0]
-Dia [fechaYhora=Sat Apr 08 12:00:00 CET 24, temp=12.4, velVient=3.0, dirVient=Oeste, racha=7.0, dirRach=Oeste, precipi=1.2, presion=971.2, tendencia=1.2, humedad=96.0]
-Dia [fechaYhora=Sat Apr 08 13:00:00 CET 24, temp=12.3, velVient=3.0, dirVient=Oeste, racha=8.0, dirRach=Oeste, precipi=0.8, presion=971.4, tendencia=0.9, humedad=96.0]
-Dia [fechaYhora=Sat Apr 08 14:00:00 CET 24, temp=12.7, velVient=2.0, dirVient=Norte, racha=6.0, dirRach=Sudoeste, precipi=1.2, presion=971.3, tendencia=0.2, humedad=93.0]
-Dia [fechaYhora=Sat Apr 08 15:00:00 CET 24, temp=12.7, velVient=7.0, dirVient=Sudeste, racha=9.0, dirRach=Sudeste, precipi=0.6, presion=970.9, tendencia=-0.3, humedad=95.0]
-Dia [fechaYhora=Sat Apr 08 16:00:00 CET 24, temp=13.6, velVient=5.0, dirVient=Sudeste, racha=10.0, dirRach=Sudeste, precipi=0.2, presion=970.5, tendencia=-0.9, humedad=92.0]
-Dia [fechaYhora=Sat Apr 08 17:00:00 CET 24, temp=14.1, velVient=6.0, dirVient=Sudeste, racha=9.0, dirRach=Sudeste, precipi=0.0, presion=970.7, tendencia=-0.6, humedad=88.0]
-Dia [fechaYhora=Sat Apr 08 18:00:00 CET 24, temp=14.0, velVient=2.0, dirVient=Nordeste, racha=11.0, dirRach=Sudeste, precipi=0.0, presion=970.7, tendencia=-0.2, humedad=82.0]
-Dia [fechaYhora=Sat Apr 08 19:00:00 CET 24, temp=13.3, velVient=3.0, dirVient=Sur, racha=9.0, dirRach=Sudeste, precipi=0.0, presion=971.0, tendencia=0.5, humedad=92.0]
-Dia [fechaYhora=Sat Apr 08 20:00:00 CET 24, temp=12.4, velVient=7.0, dirVient=Sudoeste, racha=18.0, dirRach=Oeste, precipi=0.8, presion=971.8, tendencia=1.1, humedad=95.0]
-Dia [fechaYhora=Sat Apr 08 21:00:00 CET 24, temp=11.7, velVient=6.0, dirVient=Oeste, racha=13.0, dirRach=Sudoeste, precipi=0.2, presion=972.0, tendencia=1.3, humedad=95.0]
+"16/10/2017 23:00","15.4","4.0","Este","10.0","Este","0.0","981.7","-0.9","88.0"
+"17/10/2017 00:00","15.2","4.0","Este","12.0","Este","0.0","980.9","-1.6","89.0"
+"17/10/2017 01:00","14.8","0.0","Calma","6.0","Este","0.0","980.2","-2.0","89.0"
+"17/10/2017 02:00","14.5","2.0","Norte","5.0","Sur","0.0","979.3","-2.4","92.0"
+"17/10/2017 03:00","14.0","4.0","Sur","8.0","Sur","0.0","978.1","-2.8","93.0"
+"17/10/2017 04:00","13.6","4.0","Oeste","7.0","Oeste","0.0","977.7","-2.5","95.0"
+"17/10/2017 05:00","13.4","3.0","Noroeste","8.0","Oeste","0.0","976.7","-2.6","96.0"
+"17/10/2017 06:00","13.4","4.0","Sudeste","15.0","Sudeste","0.0","975.5","-2.6","95.0"
+"17/10/2017 07:00","13.9","4.0","Noroeste","10.0","Sudeste","0.0","974.9","-2.8","92.0"
+"17/10/2017 08:00","12.8","9.0","Noroeste","14.0","Noroeste","0.0","974.7","-2.0","98.0"
+"17/10/2017 09:00","13.1","11.0","Noroeste","19.0","Oeste","0.0","975.3","-0.2","97.0"
+"17/10/2017 10:00","13.8","5.0","Sudeste","19.0","Oeste","0.0","975.8","0.9","94.0"
+"17/10/2017 11:00","15.4","2.0","Este","10.0","Sur","0.0","975.8","1.1","86.0"
+"17/10/2017 12:00","14.5","6.0","Noroeste","11.0","Noroeste","0.0","976.0","0.7","92.0"
+"17/10/2017 13:00","15.9","7.0","Sudeste","13.0","Oeste","0.0","975.7","-0.1","88.0"
+"17/10/2017 14:00","16.3","8.0","Este","15.0","Este","0.0","975.5","-0.3","89.0"
+"17/10/2017 15:00","16.0","7.0","Este","15.0","Este","0.4","975.2","-0.8","91.0"
+"17/10/2017 16:00","15.4","9.0","Este","15.0","Sudeste","0.0","974.7","-1.0","92.0"
+"17/10/2017 17:00","15.3","6.0","Este","14.0","Nordeste","0.0","974.6","-0.9","93.0"
+"17/10/2017 18:00","14.9","10.0","Nordeste","24.0","Nordeste","0.0","974.6","-0.6","83.0"
+"17/10/2017 19:00","14.9","8.0","Este","19.0","Este","0.0","974.8","0.1","80.0"
+"17/10/2017 20:00","14.8","4.0","Sudeste","19.0","Este","0.0","974.9","0.3","79.0"
+"17/10/2017 21:00","13.7","4.0","Este","12.0","Este","0.0","975.0","0.4","84.0"
+"17/10/2017 22:00","13.0","10.0","Este","15.0","Este","0.0","974.5","-0.3","87.0"
+"17/10/2017 23:00","12.5","4.0","Sudeste","12.0","Este","0.0","974.4","-0.5","89.0"
+"18/10/2017 00:00","12.0","0.0","Calma","7.0","Sur","0.0","974.0","-1.0","95.0"
+"18/10/2017 01:00","11.7","6.0","Sur","13.0","Sudoeste","0.0","973.3","-1.2","97.0"
+"18/10/2017 02:00","11.5","6.0","Sur","10.0","Sur","0.0","972.5","-1.9","97.0"
+"18/10/2017 03:00","11.5","4.0","Noroeste","10.0","Sudoeste","0.0","972.2","-1.8","98.0"
+"18/10/2017 04:00","11.5","4.0","Sur","9.0","Sudoeste","0.0","971.8","-1.5","97.0"
+"18/10/2017 05:00","11.7","4.0","Sur","8.0","Sur","0.0","971.2","-1.3","97.0"
+"18/10/2017 06:00","11.7","2.0","Noroeste","8.0","Sur","0.0","970.4","-1.8","96.0"
+"18/10/2017 07:00","11.3","5.0","Oeste","9.0","Oeste","0.0","970.2","-1.6","97.0"
+"18/10/2017 08:00","11.9","4.0","Oeste","10.0","Oeste","0.0","970.0","-1.2","94.0"
+"18/10/2017 09:00","11.9","6.0","Oeste","8.0","Oeste","0.0","970.0","-0.4","93.0"
+"18/10/2017 10:00","11.8","7.0","Oeste","13.0","Oeste","0.0","970.5","0.3","92.0"
+"18/10/2017 11:00","12.0","4.0","Sudoeste","10.0","Oeste","1.2","971.1","1.1","95.0"
+"18/10/2017 12:00","12.4","3.0","Oeste","7.0","Oeste","1.2","971.2","1.2","96.0"
+"18/10/2017 13:00","12.3","3.0","Oeste","8.0","Oeste","0.8","971.4","0.9","96.0"
+"18/10/2017 14:00","12.7","2.0","Norte","6.0","Sudoeste","1.2","971.3","0.2","93.0"
+"18/10/2017 15:00","12.7","7.0","Sudeste","9.0","Sudeste","0.6","970.9","-0.3","95.0"
+"18/10/2017 16:00","13.6","5.0","Sudeste","10.0","Sudeste","0.2","970.5","-0.9","92.0"
+"18/10/2017 17:00","14.1","6.0","Sudeste","9.0","Sudeste","0.0","970.7","-0.6","88.0"
+"18/10/2017 18:00","14.0","2.0","Nordeste","11.0","Sudeste","0.0","970.7","-0.2","82.0"
+"18/10/2017 19:00","13.3","3.0","Sur","9.0","Sudeste","0.0","971.0","0.5","92.0"
+"18/10/2017 20:00","12.4","7.0","Sudoeste","18.0","Oeste","0.8","971.8","1.1","95.0"
+"18/10/2017 21:00","11.7","6.0","Oeste","13.0","Sudoeste","0.2","972.0","1.3","95.0"
+"18/10/2017 22:00","11.4","2.0","Sudeste","8.0","Sudoeste","0.0","972.4","1.4","96.0"
+"18/10/2017 23:00","10.9","4.0","Sur","8.0","Sudoeste","0.0","972.4","0.6","97.0"
+"19/10/2017 00:00","10.7","5.0","Sur","9.0","Sur","0.0","972.3","0.3","98.0"
