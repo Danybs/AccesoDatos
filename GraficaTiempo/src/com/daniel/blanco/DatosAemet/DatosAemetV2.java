@@ -39,10 +39,10 @@ public class DatosAemetV2 {
 			update = is.readLine(); // Lectura update
 			whitespace = is.readLine(); // Lectura espacio en blanco
 			head = is.readLine(); // Lectura cabecera
-			String rLine = is.readLine();
+			String rLine; //Declaramos 
 			TreeSet<Dia> tS = new TreeSet<Dia>();// TreeSet donde almacenaremos TODOS los datos, los datos repetidos no
 													// se almacenaran
-			while ((rLine = is.readLine()) != null) {
+			while ((rLine = is.readLine()) != null) { //Mientras el fichero no este vacio				
 				String a1 = rLine.replaceAll("\"", ""); // Quitamos " del codigo, ya que si no darian error
 				Dia day = new Dia(a1.split(",")); // Almacenamos en cada objeto todos los splits de la linea
 				tS.add(day);
@@ -59,7 +59,7 @@ public class DatosAemetV2 {
 				rLine2 = read.readLine();// Lectura cabecera
 				// Almacenamos todas las lineas del fichero local en el TreeSet para descartar
 				// repetidos
-				while ((rLine2 = read.readLine()) != null) {
+				while ((rLine2 = read.readLine()) != null) {//Mientras el fichero no este vacio
 					String a2 = rLine2.replaceAll("\"", ""); // Quitamos " del codigo, ya que si no darian error
 					Dia day = new Dia(a2.split(",")); // Almacenamos en cada objeto todos los splits de la linea
 					tS.add(day);
