@@ -39,8 +39,8 @@ public class AlmacenarV2 {
 		boolean print = false;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("wrf_arw_det_history_d02_20151015_1200.txt"));
-			DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);//Formato fecha dia
-			DateFormat dateF2 = new SimpleDateFormat("HH:mm:ss", Locale.FRANCE);//Damos formato horas
+			/*DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);//Formato fecha dia, para cabecera
+			DateFormat dateF2 = new SimpleDateFormat("HH:mm:ss", Locale.FRANCE);//Damos formato horas, para temp max y min*/
 			String rLine;
 			rLine = in.readLine(); // Nos saltamos la cabecera
 			DecimalFormat df = new DecimalFormat("0");// Damos formato de 2 digitos
@@ -55,10 +55,10 @@ public class AlmacenarV2 {
 				num_day = dia.getFechaYhora().getDay(); // Esta fecha la comparamos con la del ultimo dia
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
-						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------" 
-								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC "
-								+ dateF2.format(hora_prevTM) + "\nLa temperatura minima " + df.format(temp_min) + "ºC "
-								+ dateF2.format(hora_prevTMN) + "\nLa temperatura media "
+						System.out.println("----------------Dia: " + print_day.toInstant() + "----------------" 
+								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
+								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
+								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
 								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
 								+ "\nLa probabilidad de lluvia es " + rain + "\n");
 						count2++;
@@ -133,9 +133,9 @@ public class AlmacenarV2 {
 				temp_avg = temp_avg_sum / count;
 			}
 			System.out.println(
-					"\nDatos globales (4 primeros dias):" + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ºC el día "
-							+ dateF2.format(hora_prevTM) + "\nLa temperatura minima del periodo " + (df.format(temp_min))
-							+ "ºC el día " + dateF2.format(hora_prevTM) + "\nLa temperatura media del periodo "
+					"\nDatos globales (4 primeros dias):" + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ºC el dia "
+							+ hora_prevTM.toInstant() + "\nLa temperatura minima del periodo " + (df.format(temp_min))
+							+ "ºC el día " + hora_prevTMN.toInstant() + "\nLa temperatura media del periodo "
 							+ (df.format(temp_avg)) + "ºC" + "\nLa probabiliad de lluvia en el periodo es " + rain);
 
 		} catch (Exception e) {
