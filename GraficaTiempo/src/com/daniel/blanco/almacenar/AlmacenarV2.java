@@ -24,7 +24,7 @@ Para el periodo completo, temperatura maxima, temperatura minima que dia y hora,
  */
 public class AlmacenarV2 {
 	public static void main(String[] args) {
-		int dias=5; // Dias que queremos que cuente
+		int dias=10; // Dias que queremos que cuente
 		float temp_max = 0;
 		float temp_min = 500;
 		float temp_avg = 0;
@@ -41,8 +41,8 @@ public class AlmacenarV2 {
 		boolean hola = false;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("wrf_arw_det_history_d02_20151015_1200.txt"));
-			/*DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);//Formato fecha dia, para cabecera
-			DateFormat dateF2 = new SimpleDateFormat("HH:mm:ss", Locale.FRANCE);//Damos formato horas, para temp max y min*/
+			DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);//Formato fecha dia, para cabecera
+			/*DateFormat dateF2 = new SimpleDateFormat("HH:mm:ss", Locale.FRANCE);//Damos formato horas, para temp max y min*/
 			String rLine;
 			rLine = in.readLine(); // Nos saltamos la cabecera
 			DecimalFormat df = new DecimalFormat("0");// Damos formato de 2 digitos
@@ -57,7 +57,7 @@ public class AlmacenarV2 {
 				num_day = dia.getFechaYhora().getDay(); // Esta fecha la comparamos con la del ultimo dia
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
-						System.out.println("----------------Dia: " + print_day.toInstant() + "----------------" 
+						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------" 
 								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
 								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
 								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
@@ -95,9 +95,9 @@ public class AlmacenarV2 {
 				print = true; // Ponemos a true para que cuando el dia sea diferente imprima el dia
 				print_day = dia.getFechaYhora(); // Almacenamos el dia para imprimirlo
 				last_day = dia.getFechaYhora().getDay(); // Comparamos la ultima fecha con la siguiente fecha
-				/*if(tS.last().equals(dia)) {
+				if(tS.last().equals(dia)) {
 					if (print) {
-						System.out.println("----------------Dia: " + print_day.toInstant() + "----------------" 
+						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------" 
 								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
 								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
 								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
@@ -116,7 +116,7 @@ public class AlmacenarV2 {
 					hora_prevTM = null;
 					hora_prevTMN = null;
 					rain = false;
-				}*/
+				}
 			}
 			// Global
 			temp_max = 0; // Reseteamos todos los valores para hacer el periodo de 4 dias
@@ -159,7 +159,7 @@ public class AlmacenarV2 {
 				temp_avg = temp_avg_sum / count;
 			}
 			System.out.println(
-					"\nDatos globales (4 primeros dias):" + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ºC el dia "
+					"\nDatos globales: " + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ºC el dia "
 							+ hora_prevTM.toInstant() + "\nLa temperatura minima del periodo " + (df.format(temp_min))
 							+ "ºC el día " + hora_prevTMN.toInstant() + "\nLa temperatura media del periodo "
 							+ (df.format(temp_avg)) + "ºC" + "\nLa probabiliad de lluvia en el periodo es " + rain);
