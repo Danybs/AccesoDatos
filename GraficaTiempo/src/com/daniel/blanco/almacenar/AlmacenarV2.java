@@ -24,12 +24,13 @@ Para el periodo completo, temperatura maxima, temperatura minima que dia y hora,
  */
 public class AlmacenarV2 {
 	public static void main(String[] args) {
+		int dias=5; // Dias que queremos que cuente
 		float temp_max = 0;
 		float temp_min = 500;
 		float temp_avg = 0;
 		float temp_avg_sum = 0;
-		int count = 0;
-		int count2 = 0;
+		int count = 0; //contador de la media temp
+		int count2 = 0; //contador para detectar dias
 		Date hora_prevTM = null;
 		Date hora_prevTMN = null;
 		Date print_day = null;
@@ -37,6 +38,7 @@ public class AlmacenarV2 {
 		int num_day = 0;
 		boolean rain = false;
 		boolean print = false;
+		boolean hola = false;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("wrf_arw_det_history_d02_20151015_1200.txt"));
 			/*DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE);//Formato fecha dia, para cabecera
@@ -51,7 +53,7 @@ public class AlmacenarV2 {
 			}
 			in.close();
 			// Por dias
-			for (Dia dia : tS) {
+			for (Dia dia : tS) {				
 				num_day = dia.getFechaYhora().getDay(); // Esta fecha la comparamos con la del ultimo dia
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
@@ -62,7 +64,7 @@ public class AlmacenarV2 {
 								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
 								+ "\nLa probabilidad de lluvia es " + rain + "\n");
 						count2++;
-						if (count2 == 4) {
+						if (count2 == dias) { // Dias que queremos que cuente
 							break;
 						}
 					}
@@ -75,6 +77,8 @@ public class AlmacenarV2 {
 					hora_prevTMN = null;
 					rain = false;
 				}
+				
+				
 				if (dia.getTemp() > temp_max) { // Seleccionamos la temp max y su hora
 					temp_max = dia.getTemp();
 					hora_prevTM = dia.getFechaYhora();
@@ -91,6 +95,28 @@ public class AlmacenarV2 {
 				print = true; // Ponemos a true para que cuando el dia sea diferente imprima el dia
 				print_day = dia.getFechaYhora(); // Almacenamos el dia para imprimirlo
 				last_day = dia.getFechaYhora().getDay(); // Comparamos la ultima fecha con la siguiente fecha
+				/*if(tS.last().equals(dia)) {
+					if (print) {
+						System.out.println("----------------Dia: " + print_day.toInstant() + "----------------" 
+								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
+								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
+								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
+								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
+								+ "\nLa probabilidad de lluvia es " + rain + "\n");
+						count2++;
+						if (count2 == dias) { // Dias que queremos que cuente
+							break;
+						}
+					}
+					temp_max = 0; // Reseteamos todos los valores para hacer un nuevo dia
+					temp_min = 500;
+					temp_avg = 0;
+					temp_avg_sum = 0;
+					count = 0;
+					hora_prevTM = null;
+					hora_prevTMN = null;
+					rain = false;
+				}*/
 			}
 			// Global
 			temp_max = 0; // Reseteamos todos los valores para hacer el periodo de 4 dias
@@ -110,7 +136,7 @@ public class AlmacenarV2 {
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
 						count2++;
-						if (count2 == 4) { // Cuando sea 4 detectara que hay 4 dias y parará
+						if (count2 == dias) { // Dias que queremos que cuente
 							break;
 						}
 					}
