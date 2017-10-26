@@ -24,7 +24,7 @@ Para el periodo completo, temperatura maxima, temperatura minima que dia y hora,
  */
 public class AlmacenarV2 {
 	public static void main(String[] args) {
-		int dias=10; // Dias que queremos que cuente
+		int dias=10; // Dias que queremos que cuente, en caso de querer solo los 4 primeros
 		float temp_max = 0;
 		float temp_min = 500;
 		float temp_avg = 0;
@@ -54,7 +54,7 @@ public class AlmacenarV2 {
 			in.close();
 			// Por dias
 			for (Dia dia : tS) {				
-				num_day = dia.getFechaYhora().getDay(); // Esta fecha la comparamos con la del ultimo dia
+				num_day = dia.getFechaYhora().getDate(); // Esta fecha la comparamos con la del ultimo dia
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
 						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------" 
@@ -64,7 +64,7 @@ public class AlmacenarV2 {
 								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
 								+ "\nLa probabilidad de lluvia es " + rain + "\n");
 						count2++;
-						if (count2 == dias) { // Dias que queremos que cuente
+						if (count2 == dias) { // Dias que queremos que cuente, en caso de querer solo los 4 primeros
 							break;
 						}
 					}
@@ -94,7 +94,7 @@ public class AlmacenarV2 {
 				count++; // contador para hacer la media de las temperaturas diarias
 				print = true; // Ponemos a true para que cuando el dia sea diferente imprima el dia
 				print_day = dia.getFechaYhora(); // Almacenamos el dia para imprimirlo
-				last_day = dia.getFechaYhora().getDay(); // Comparamos la ultima fecha con la siguiente fecha
+				last_day = dia.getFechaYhora().getDate(); // Comparamos la ultima fecha con la siguiente fecha
 				if(tS.last().equals(dia)) {
 					if (print) {
 						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------" 
@@ -132,11 +132,11 @@ public class AlmacenarV2 {
 			rain = false;
 			print = false;
 			for (Dia dia : tS) {
-				num_day = dia.getFechaYhora().getDay();// Esta fecha la comparamos con la del ultimo dia
+				num_day = dia.getFechaYhora().getDate();// Esta fecha la comparamos con la del ultimo dia
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
 						count2++;
-						if (count2 == dias) { // Dias que queremos que cuente
+						if (count2 == dias) { // Dias que queremos que cuente, en caso de querer solo los 4 primeros
 							break;
 						}
 					}
@@ -155,7 +155,7 @@ public class AlmacenarV2 {
 				temp_avg_sum = temp_avg_sum + dia.getTemp();
 				count++;
 				print = true; // Parte algoritmo B
-				last_day = dia.getFechaYhora().getDay(); // Comparamos la ultima fecha con la siguiente fecha
+				last_day = dia.getFechaYhora().getDate(); // Comparamos la ultima fecha con la siguiente fecha
 				temp_avg = temp_avg_sum / count;
 			}
 			System.out.println(
