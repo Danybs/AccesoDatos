@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TreeSet;
 
-/*Para cada día Temp max, temp min, horas a las que esta prevista y temp media del dia
+/*Para cada dÃ­a Temp max, temp min, horas a las que esta prevista y temp media del dia
 Para el periodo completo, temperatura maxima, temperatura minima que dia y hora, temp media del periodo y si esta prevista lluvia(4dias)*/
 
 /*date,lat[unit="degrees_north"],lon[unit="degrees_east"],
@@ -58,10 +58,10 @@ public class AlmacenarV2 {
 				if (num_day != last_day) { // Comenzamos algoritmo B para detectar 4 dias
 					if (print) {
 						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------"
-								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
-								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
+								+ "\nLa temperatura maxima " + df.format(temp_max) + "ÂºC a las "
+								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ÂºC a las "
 								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
-								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
+								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ÂºC"
 								+ "\nLa probabilidad de lluvia es " + rain + "\n");
 						count2++;
 						if (count2 == dias) { // Dias que queremos que cuente, en caso de querer solo los 4 primeros
@@ -87,7 +87,7 @@ public class AlmacenarV2 {
 					temp_min = dia.getTemp();
 					hora_prevTMN = dia.getFechaYhora();
 				}
-				if (dia.getPrec() != 0.0) { // Seleccionamos si lloverá
+				if (dia.getPrec() != 0.0) { // Seleccionamos si lloverÃ¡
 					rain = true;
 				}
 				temp_avg_sum = temp_avg_sum + dia.getTemp(); // Media diaria de las temperaturas
@@ -98,10 +98,10 @@ public class AlmacenarV2 {
 				if(tS.last().equals(dia)) {
 					if (print) {
 						System.out.println("----------------Dia: " + dateF.format(print_day) + "----------------"
-								+ "\nLa temperatura maxima " + df.format(temp_max) + "ºC a las "
-								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ºC a las "
+								+ "\nLa temperatura maxima " + df.format(temp_max) + "ÂºC a las "
+								+ hora_prevTM.toInstant() + "\nLa temperatura minima " + df.format(temp_min) + "ÂºC a las "
 								+ hora_prevTMN.toInstant() + "\nLa temperatura media "
-								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ºC"
+								+ (df.format(temp_avg = (temp_avg_sum / count))) + "ÂºC"
 								+ "\nLa probabilidad de lluvia es " + rain + "\n");
 						count2++;
 						if (count2 == dias) { // Dias que queremos que cuente
@@ -159,10 +159,10 @@ public class AlmacenarV2 {
 				temp_avg = temp_avg_sum / count;
 			}
 			System.out.println(
-					"\nDatos globales: " + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ºC el dia "
+					"\nDatos globales: " + "\nLa temperatura maxima del periodo " + (df.format(temp_max)) + "ÂºC el dia "
 							+ hora_prevTM.toInstant() + "\nLa temperatura minima del periodo " + (df.format(temp_min))
-							+ "ºC el día " + hora_prevTMN.toInstant() + "\nLa temperatura media del periodo "
-							+ (df.format(temp_avg)) + "ºC" + "\nLa probabiliad de lluvia en el periodo es " + rain);
+							+ "ÂºC el dÃ­a " + hora_prevTMN.toInstant() + "\nLa temperatura media del periodo "
+							+ (df.format(temp_avg)) + "ÂºC" + "\nLa probabiliad de lluvia en el periodo es " + rain);
 
 		} catch (Exception e) {
 			e.printStackTrace();

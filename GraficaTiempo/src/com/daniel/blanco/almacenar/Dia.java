@@ -75,7 +75,7 @@ public class Dia implements Comparable<Dia>{
 		return rh;
 	}
 	public float getTemp() {
-		return temp-273;
+		return temp-273.15f;
 	}
 	public float getWind_gust() {
 		return wind_gust;
