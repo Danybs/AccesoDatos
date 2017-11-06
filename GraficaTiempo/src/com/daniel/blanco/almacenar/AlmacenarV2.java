@@ -12,7 +12,6 @@ import java.util.TreeSet;
 /*Para cada día Temp max, temp min, horas a las que esta prevista y temp media del dia
 Para el periodo completo, temperatura maxima, temperatura minima que dia y hora, temp media del periodo y si esta prevista lluvia(4dias)*/
 
-/*https://docs.oracle.com/javase/7/docs/api/java/util/Date.html*/
 /**
  * @(#)Almacenar.java
  * @author Dani
