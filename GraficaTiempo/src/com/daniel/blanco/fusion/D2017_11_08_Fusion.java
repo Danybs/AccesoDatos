@@ -17,22 +17,22 @@ public class D2017_11_08_Fusion {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.UK);// Formato fecha
-//		File fichero1 = new File("Fusion.csv");
-//		if (!fichero1.exists()) {
+		File fichero1 = new File("Fusion.csv");
+		if (!fichero1.exists()) {
 			try {
 				//Llamamos al metodo main de la otra clase para sincronizar el fichero y que se actualice todo
 				D2017_11_07_RainOrNot.main(args);
 				
-				System.out.println("Escribiendo...");
-				BufferedReader read1 = new BufferedReader(new FileReader("noRainDays.csv"));
-				BufferedReader read2 = new BufferedReader(new FileReader("RainDays.csv"));
-				BufferedWriter write = new BufferedWriter(new FileWriter("Fusion.csv",true));
+				System.out.println("\nFusionando archivo...");
+				BufferedReader read1 = new BufferedReader(new FileReader("noRainDays.txt"));
+				BufferedReader read2 = new BufferedReader(new FileReader("RainDays.txt"));
+				BufferedWriter write = new BufferedWriter(new FileWriter("Fusion.txt",true));
 				Date registry1, registry2;
 				String line1 = "", line2 = "";
-				try {
+				try {	
 					line1 = read1.readLine();
 					line2 = read1.readLine();
-					while (line1 != null && line2 != null) {
+					while (line1 != null && line2 != null) {						
 						registry1 = dateF.parse(line1);
 						registry2 = dateF.parse(line2);
 						if (registry1.before(registry2)) {
@@ -46,14 +46,14 @@ public class D2017_11_08_Fusion {
 						}
 					}
 					if (line1 == null) {
-						while ((read2.readLine()) != null) {
+						while (line2 != null) {
 							write.write(line2);
 							write.newLine();
 							read2.readLine();
 							line2 = read2.readLine();
 						}
 					} else {
-						while ((line1 = read1.readLine()) != null) {
+						while (line1 != null) {
 							write.write(line1);
 							write.newLine();
 							line1 = read1.readLine();
@@ -62,7 +62,7 @@ public class D2017_11_08_Fusion {
 					read1.close();
 					read2.close();
 					write.close();
-					System.out.println("Fichero escrito correctamente");
+					System.out.println("Fusion realizada con exito");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -72,9 +72,9 @@ public class D2017_11_08_Fusion {
 				e.printStackTrace();
 			}
 
-//		} else {
-//			fichero1.delete();
-//		}
+		} else {
+		fichero1.delete();
+		}
 	}
 	
 }

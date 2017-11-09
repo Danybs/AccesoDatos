@@ -23,13 +23,11 @@ public class D2017_11_07_RainOrNot {
 	TreeSet<Dia> ts = new TreeSet<Dia>();
 	Date date; // Variable para almacenar las fechas
 	DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.UK);// Formato fecha
-	File fichero1 = new File("noRainDays.csv");
-	File fichero2 = new File("RainDays.csv");
 
 	// Metodo para leer el fichero y almacenarlo en un TreeSet para ordenarlo
 	void readFile() {
 		try {
-			System.out.println("Leyendo fichero...");
+			System.out.println("\nLeyendo fichero...");
 			BufferedReader read = new BufferedReader(new FileReader("datosAemet.csv"));
 			String city, update, whitespace, head; // Cabecera
 			city = read.readLine(); // Lectura ciudad
@@ -50,10 +48,9 @@ public class D2017_11_07_RainOrNot {
 
 	// Metodo para escribir los dias no lluviosos
 	void writeNoRainDays() {
-		if (!fichero1.exists()) {
 			try {
 				System.out.println("Escribiendo dias no lluviosos...");
-				BufferedWriter write = new BufferedWriter(new FileWriter("noRainDays.csv"));
+				BufferedWriter write = new BufferedWriter(new FileWriter("noRainDays.txt",true));
 				for (Dia dia : ts) {
 					if (dia.getPrecipi() == 0) {
 						date = dia.getFechaYhora();
@@ -66,17 +63,13 @@ public class D2017_11_07_RainOrNot {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
-			fichero1.delete();
 		}
-	}
 
 	// Metodo para escribir los dias lluviosos
 	void writeRainDays() {
-		if (!fichero2.exists()) {
 			try {
 				System.out.println("Escribiendo días lluviosos");
-				BufferedWriter write = new BufferedWriter(new FileWriter("RainDays.csv"));
+				BufferedWriter write = new BufferedWriter(new FileWriter("RainDays.txt",true));
 				for (Dia dia : ts) {
 					if (dia.getPrecipi() != 0) {
 						date = dia.getFechaYhora();
@@ -89,10 +82,8 @@ public class D2017_11_07_RainOrNot {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
-			fichero1.delete();
-		}
-	}
+		} 
+	
 
 	public static void main(String[] args) {
 		// Llamada al metodo main de la otra clase para actualizar el fichero DatosAemetV2 con los nuevos días
