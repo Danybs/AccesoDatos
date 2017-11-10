@@ -50,7 +50,7 @@ public class D2017_11_07_RainOrNot {
 	void writeNoRainDays() {
 			try {
 				System.out.println("Escribiendo dias no lluviosos...");
-				BufferedWriter write = new BufferedWriter(new FileWriter("noRainDays.txt",true));
+				BufferedWriter write = new BufferedWriter(new FileWriter("noRainDays.txt"));
 				for (Dia dia : ts) {
 					if (dia.getPrecipi() == 0) {
 						date = dia.getFechaYhora();
@@ -69,7 +69,7 @@ public class D2017_11_07_RainOrNot {
 	void writeRainDays() {
 			try {
 				System.out.println("Escribiendo días lluviosos");
-				BufferedWriter write = new BufferedWriter(new FileWriter("RainDays.txt",true));
+				BufferedWriter write = new BufferedWriter(new FileWriter("RainDays.txt"));
 				for (Dia dia : ts) {
 					if (dia.getPrecipi() != 0) {
 						date = dia.getFechaYhora();
