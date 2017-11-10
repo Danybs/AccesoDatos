@@ -1,5 +1,5 @@
 "Oviedo"
-Actualizado: viernes, 10 noviembre 2017 a las 12:42 hora oficial
+Actualizado: viernes, 10 noviembre 2017 a las 18:42 hora oficial
 
 "Fecha y hora oficial","Temperatura (ºC)","Velocidad del viento (km/h)","Dirección del viento","Racha (km/h)","Dirección de racha","Precipitación (mm)","Presión (hPa)","Tendencia (hPa)","Humedad (%)"
 "16/10/2017 23:00","15.4","4.0","Este","10.0","Este","0.0","981.7","-0.9","88.0"
@@ -281,3 +281,8 @@ Actualizado: viernes, 10 noviembre 2017 a las 12:42 hora oficial
 "10/11/2017 11:00","11.6","9.0","Noroeste","17.0","Noroeste","0.4","993.6","1.6","100.0"
 "10/11/2017 12:00","12.3","13.0","Oeste","20.0","Noroeste","0.4","993.8","0.9","100.0"
 "10/11/2017 13:00","12.1","11.0","Oeste","19.0","Oeste","1.0","993.4","0.2","100.0"
+"10/11/2017 14:00","12.3","8.0","Noroeste","17.0","Oeste","0.8","993.1","-0.5","100.0"
+"10/11/2017 15:00","12.5","7.0","Oeste","15.0","Noroeste","0.4","992.7","-1.1","100.0"
+"10/11/2017 16:00","13.1","9.0","Sudoeste","12.0","Sur","0.0","992.7","-0.7","98.0"
+"10/11/2017 17:00","11.6","9.0","Noroeste","22.0","Noroeste","0.2","992.7","-0.4","97.0"
+"10/11/2017 18:00","11.7","4.0","Sudoeste","14.0","Noroeste","0.0","993.3","0.6","98.0"
