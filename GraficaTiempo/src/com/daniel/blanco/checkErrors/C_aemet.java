@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Dia implements Comparable<Dia>{
+public class C_aemet implements Comparable<C_aemet>{
 	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm", Locale.UK);//Damos formato a la fecha
 	Date fechaYhora;
 	float temp;
@@ -26,7 +26,7 @@ public class Dia implements Comparable<Dia>{
 				+ "," + "\""+tendencia+"\"" + "," + "\""+humedad+"\"";
 	}
 
-	public Dia(String campos[]) throws ParseException{
+	public C_aemet(String campos[]) throws ParseException{
 		fechaYhora=format.parse(campos[0]);
 		temp=Float.parseFloat(campos[1]);
 		velVient=Float.parseFloat(campos[2]);
@@ -74,7 +74,7 @@ public class Dia implements Comparable<Dia>{
 	}
 	
 	@Override
-	public int compareTo(Dia o) {
+	public int compareTo(C_aemet o) {
 		return getFechaYhora().compareTo(o.getFechaYhora());
 	}	
 	
