@@ -8,21 +8,41 @@ import java.io.IOException;
 public class D2017_11_07_Difference {
 	//20171109_Pronostico.csv
 	
-	
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		try {
-			BufferedReader read1 = new BufferedReader(new FileReader("20171109_Pronostico.csv"));
-			String a;
-			while((a=read1.readLine())!=null) {
-				
-				System.out.println(a);
-				
+		BufferedReader r1;
+		BufferedReader r2;
+		String l1,l2;
+		
+			try {
+				r1 = new BufferedReader(new FileReader("datosAemet.csv"));
+				r2 = new BufferedReader(new FileReader("20171109_Pronostico.csv"));
+				for (int i = 0; i < 5; i++) {
+					r1.readLine();
+				}				
+				l1 = r1.readLine();
+				l2 = r2.readLine();
+				while((r1!=null) && (r2!=null))  {					
+					if(l1<l2) {//fechas
+						l1 = r1.readLine();
+					}
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("No se encuentra fichero.");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.err.println("Problemas leyendo el fichero maestro");
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+			try {
+		
+			}catch (Exception e) {
+				// TODO: handle exception
+			}		
+		
+			
 	}
 
 }
