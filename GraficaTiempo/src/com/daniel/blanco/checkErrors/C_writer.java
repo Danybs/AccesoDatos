@@ -33,13 +33,14 @@ public class C_writer {
 		this.humedad = humedad;
 	}
 	
+	
 	public void setTemperatura(float temperatura) {
 		this.temperatura = temperatura;
 	}
 
 	@Override
 	public String toString() {
-		return "\""+ fechaYhora +"\""+ ","+ "\"" + velVient +"\""+ ","+ "\""
+		return "\""+ format.format(fechaYhora) +"\""+ ","+ "\"" + velVient +"\""+ ","+ "\""
 	+ "\"" +presion+"\""+ ","+ "\"" +precipi+"\""+ ","+ "\"" +humedad+"\""+ ","+ "\"" +temperatura+"\"";
 	}
 	

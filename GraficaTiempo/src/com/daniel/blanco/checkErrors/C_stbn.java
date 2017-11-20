@@ -13,7 +13,7 @@ import java.util.TimeZone;
 
 public class C_stbn implements Comparable<C_stbn> {
 	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");// Damos formato a la fecha
-	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
+//	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
 	Date fechaYhora;
 	float lat;
 	float lon;
@@ -25,7 +25,7 @@ public class C_stbn implements Comparable<C_stbn> {
 	float temp;
 
 	public C_stbn(String campos[]) throws ParseException {
-		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
+//		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
 		fechaYhora = format.parse(campos[0]);
 		lat = Float.parseFloat(campos[1]);
 		lon = Float.parseFloat(campos[2]);

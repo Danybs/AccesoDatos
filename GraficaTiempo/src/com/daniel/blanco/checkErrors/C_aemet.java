@@ -9,7 +9,7 @@ import java.util.TimeZone;
 
 public class C_aemet implements Comparable<C_aemet>{
 	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm");//Damos formato a la fecha
-	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
+//	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
 	Date fechaYhora;
 	float temp;
 	float velVient;
@@ -29,7 +29,7 @@ public class C_aemet implements Comparable<C_aemet>{
 	}
 
 	public C_aemet(String campos[]) throws ParseException{
-		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
+//		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
 		fechaYhora=format.parse(campos[0]);
 		temp=Float.parseFloat(campos[1]);
 		velVient=Float.parseFloat(campos[2]);
