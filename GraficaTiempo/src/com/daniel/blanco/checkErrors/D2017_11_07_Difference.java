@@ -38,14 +38,17 @@ public class D2017_11_07_Difference {
 					l2 = r2.readLine();
 				} else {
 						C_writer d3 = new C_writer();
-						d3.setFechaYhora(d1.getFechaYhora());
+						System.out.println(d1.getFechaYhora()+" "+d2.getFechaYhora());
+						System.out.println(d1.getTemp()+" "+d2.getTemp());
+						
+						/*d3.setFechaYhora(d1.getFechaYhora());
 						d3.setVelVient(d1.getVelVient()-d2.getVelVient());
 						d3.setPresion(d1.getPresion()-d2.getPresion());
 						d3.setPrecipi(d1.getPrecipi()-d2.getPrecipi());
 						d3.setHumedad(d1.getHumedad()-d2.getHumedad());
-						d3.setTemperatura(d1.getTemp()-d2.getTemp());
+						d3.setTemperatura(d1.getTemp()-d2.getTemp());*/
 //						w1.write(d3.toString());
-						System.out.println(d3.toString());
+						/*System.out.println(d3.toString());*/
 						l1 = r1.readLine();
 						l2 = r2.readLine();
 				}
