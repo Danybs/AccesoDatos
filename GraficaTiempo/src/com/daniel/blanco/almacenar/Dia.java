@@ -12,7 +12,7 @@ import java.util.Locale;
 /* Cada registro consistira de fecha[0], latitud[1],longitud[2],direccion[3], modulo[4],
  * mslp[5], precipitacion[6], rh[7], temperatura[8] y viento[9]*/
 public class Dia implements Comparable<Dia>{
-	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.FRANCE);//Damos formato a la fecha
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");//Damos formato a la fecha
 	Date fechaYhora;
 	float lat;
 	float lon;

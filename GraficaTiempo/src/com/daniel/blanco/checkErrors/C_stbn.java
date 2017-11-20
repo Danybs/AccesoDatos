@@ -10,8 +10,8 @@ import java.util.Locale;
  * mod[unit="m s-1"],mslp[unit="Pa"],prec[unit="kg m-2"],rh[unit="1"],temp[unit="K"]
  */
 
-public class C_stbn implements Comparable<C_stbn>{
-	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm", Locale.UK);//Damos formato a la fecha
+public class C_stbn implements Comparable<C_stbn> {
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");// Damos formato a la fecha
 	Date fechaYhora;
 	float lat;
 	float lon;
@@ -21,65 +21,63 @@ public class C_stbn implements Comparable<C_stbn>{
 	float precipi;
 	float humedad;
 	float temp;
-	
-	@Override
-	public String toString() {
-		return "\""+format.format(fechaYhora)+"\"" + "," + "\""+temp+"\"" + "," + "\""+velVient+"\"" + "," + "\""+dirVient+"\""
-				+ "," + "\""+racha+"\"" + "," + "\""+dirRach+"\"" + "," + "\""+precipi+"\"" + "," + "\""+presion+"\""
-				+ "," + "\""+tendencia+"\"" + "," + "\""+humedad+"\"";
-	}
 
-	public C_stbn(String campos[]) throws ParseException{
-		fechaYhora=format.parse(campos[0]);
-		temp=Float.parseFloat(campos[1]);
-		velVient=Float.parseFloat(campos[2]);
-		dirVient=String.valueOf(campos[3]);
-		racha=Float.parseFloat(campos[4]);
-		dirRach=String.valueOf(campos[5]);
-		precipi=Float.parseFloat(campos[6]);
-		presion=Float.parseFloat(campos[7]);
-		tendencia=Float.parseFloat(campos[8]);
-		humedad=Float.parseFloat(campos[9]);
+	public C_stbn(String campos[]) throws ParseException {
+		fechaYhora = format.parse(campos[0]);
+		lat = Float.parseFloat(campos[1]);
+		lon = Float.parseFloat(campos[2]);
+		dirVient = Float.parseFloat(campos[3]);
+		velVient = Float.parseFloat(campos[4]);
+		presion = Float.parseFloat(campos[5]);
+		precipi = Float.parseFloat(campos[6]);
+		humedad = Float.parseFloat(campos[7]);
+		temp = Float.parseFloat(campos[8]);
 	}
 	
 	public DateFormat getFormat() {
 		return format;
 	}
+
 	public Date getFechaYhora() {
 		return fechaYhora;
 	}
-	public float getTemp() {
-		return temp;
+
+	public float getLat() {
+		return lat;
 	}
+
+	public float getLon() {
+		return lon;
+	}
+
+	public float getDirVient() {
+		return dirVient;
+	}
+
 	public float getVelVient() {
 		return velVient;
 	}
-	public String getDirVient() {
-		return dirVient;
-	}
-	public float getRacha() {
-		return racha;
-	}
-	public String getDirRach() {
-		return dirRach;
-	}
-	public float getPrecipi() {
-		return precipi;
-	}
+
 	public float getPresion() {
 		return presion;
 	}
-	public float getTendencia() {
-		return tendencia;
+
+	public float getPrecipi() {
+		return precipi;
 	}
+
 	public float getHumedad() {
 		return humedad;
 	}
+
+	public float getTemp() {
+		return temp-273.15f;
+	}
 	
+
 	@Override
 	public int compareTo(C_stbn o) {
 		return getFechaYhora().compareTo(o.getFechaYhora());
-	}	
-	
-	
+	}
+
 }

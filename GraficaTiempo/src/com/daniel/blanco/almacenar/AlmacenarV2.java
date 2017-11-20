@@ -35,8 +35,8 @@ public class AlmacenarV2 {
 		boolean hola = false;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("wrf_arw_det_history_d02_20151015_1200.txt"));
-			DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);// Formato fecha dia, para cabecera
-			DateFormat dateF2 = new SimpleDateFormat("HH:mm", Locale.UK);// Damos formato horas, para temp max y min
+			DateFormat dateF = new SimpleDateFormat("yyyy-MM-dd");// Formato fecha dia, para cabecera
+			DateFormat dateF2 = new SimpleDateFormat("HH:mm");// Damos formato horas, para temp max y min
 			DecimalFormat df = new DecimalFormat("0");// Damos formato de 2 digitos
 			String rLine;
 			rLine = in.readLine(); // Nos saltamos la cabecera

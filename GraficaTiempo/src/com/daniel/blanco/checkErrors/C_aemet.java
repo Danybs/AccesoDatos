@@ -5,9 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class C_aemet implements Comparable<C_aemet>{
-	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm", Locale.UK);//Damos formato a la fecha
+	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm");//Damos formato a la fecha
+	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
 	Date fechaYhora;
 	float temp;
 	float velVient;
@@ -27,6 +29,7 @@ public class C_aemet implements Comparable<C_aemet>{
 	}
 
 	public C_aemet(String campos[]) throws ParseException{
+		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
 		fechaYhora=format.parse(campos[0]);
 		temp=Float.parseFloat(campos[1]);
 		velVient=Float.parseFloat(campos[2]);
@@ -39,17 +42,15 @@ public class C_aemet implements Comparable<C_aemet>{
 		humedad=Float.parseFloat(campos[9]);
 	}
 	
-	public DateFormat getFormat() {
-		return format;
-	}
 	public Date getFechaYhora() {
+		
 		return fechaYhora;
 	}
 	public float getTemp() {
 		return temp;
 	}
 	public float getVelVient() {
-		return velVient;
+		return (velVient*1000)/3600;
 	}
 	public String getDirVient() {
 		return dirVient;
@@ -64,7 +65,7 @@ public class C_aemet implements Comparable<C_aemet>{
 		return precipi;
 	}
 	public float getPresion() {
-		return presion;
+		return presion*100;
 	}
 	public float getTendencia() {
 		return tendencia;
