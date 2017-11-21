@@ -11,7 +11,7 @@ import java.util.TimeZone;
  * mod[unit="m s-1"],mslp[unit="Pa"],prec[unit="kg m-2"],rh[unit="1"],temp[unit="K"]
  */
 
-public class C_stbn implements Comparable<C_stbn> {
+public class C_stbn{
 	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");// Damos formato a la fecha
 	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
 	Date fechaYhora;
@@ -37,10 +37,6 @@ public class C_stbn implements Comparable<C_stbn> {
 		temp = Float.parseFloat(campos[8]);
 	}
 	
-	public DateFormat getFormat() {
-		return format;
-	}
-
 	public Date getFechaYhora() {
 		return fechaYhora;
 	}
@@ -77,10 +73,4 @@ public class C_stbn implements Comparable<C_stbn> {
 		return temp-273.15f;
 	}
 	
-
-	@Override
-	public int compareTo(C_stbn o) {
-		return getFechaYhora().compareTo(o.getFechaYhora());
-	}
-
 }

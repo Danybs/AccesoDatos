@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class C_aemet implements Comparable<C_aemet>{
+public class C_aemet{
 	DateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm");//Damos formato a la fecha
-	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
+	
 	Date fechaYhora;
 	float temp;
 	float velVient;
@@ -20,16 +20,8 @@ public class C_aemet implements Comparable<C_aemet>{
 	float presion;
 	float tendencia;
 	float humedad;
-	
-	@Override
-	public String toString() {
-		return "\""+format.format(fechaYhora)+"\"" + "," + "\""+temp+"\"" + "," + "\""+velVient+"\"" + "," + "\""+dirVient+"\""
-				+ "," + "\""+racha+"\"" + "," + "\""+dirRach+"\"" + "," + "\""+precipi+"\"" + "," + "\""+presion+"\""
-				+ "," + "\""+tendencia+"\"" + "," + "\""+humedad+"\"";
-	}
 
 	public C_aemet(String campos[]) throws ParseException{
-		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
 		fechaYhora=format.parse(campos[0]);
 		temp=Float.parseFloat(campos[1]);
 		velVient=Float.parseFloat(campos[2]);
@@ -71,13 +63,7 @@ public class C_aemet implements Comparable<C_aemet>{
 		return tendencia;
 	}
 	public float getHumedad() {
-		return humedad;
+		return humedad/100;
 	}
-	
-	@Override
-	public int compareTo(C_aemet o) {
-		return getFechaYhora().compareTo(o.getFechaYhora());
-	}	
-	
 	
 }
