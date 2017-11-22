@@ -58,7 +58,7 @@ public class C_stbn{
 	}
 
 	public float getPresion() {
-		return presion;
+		return presion/100;
 	}
 
 	public float getPrecipi() {

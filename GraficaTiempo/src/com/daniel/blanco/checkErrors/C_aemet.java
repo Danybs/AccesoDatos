@@ -57,7 +57,7 @@ public class C_aemet{
 		return precipi;
 	}
 	public float getPresion() {
-		return presion*100;
+		return presion;
 	}
 	public float getTendencia() {
 		return tendencia;

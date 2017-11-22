@@ -72,6 +72,7 @@ public class D2017_11_07_Difference{
 					d3.setVelVient(d1.getVelVient() - d2.getVelVient());
 					d3.setPresion(d1.getPresion() - d2.getPresion());
 					d3.setPrecipi(d1.getPrecipi() - d2.getPrecipi());
+					System.out.println(d1.getPrecipi()-d2.getPrecipi());
 					d3.setHumedad(d1.getHumedad() - d2.getHumedad());
 					d3.setTemperatura(d1.getTemp() - d2.getTemp());
 					fEnfrentamientos.write(d3.toString());
