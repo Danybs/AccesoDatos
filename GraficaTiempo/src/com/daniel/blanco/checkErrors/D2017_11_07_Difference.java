@@ -1,6 +1,5 @@
 package com.daniel.blanco.checkErrors;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -9,27 +8,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 
-
-
-<<<<<<< HEAD
 public class D2017_11_07_Difference {
-=======
-public class D2017_11_07_Difference{
->>>>>>> 5fa44188599e186d2c1e6e0b146a9223408a7e7d
 	// Falta convertir la lluvia
 	private BufferedReader fMaestro, fMovimientos;
 	private BufferedWriter fEnfrentamientos;
 	private String lMaestro, lMovimientos;
 	private String head=("Fecha CET, Fecha GMT, Velocidad del viento (m/s), Presion atmosférica (Pa), Precipitación (mm), Humedad (1) , Temperatura (Cº)");
-<<<<<<< HEAD
-	
-	
 
-
-=======
-	private 
-	
->>>>>>> 5fa44188599e186d2c1e6e0b146a9223408a7e7d
 	void read() {
 		try {
 			System.out.println("Abriendo buffers...");
@@ -45,7 +30,7 @@ public class D2017_11_07_Difference{
 		}
 	}
 
-	public void header() {
+	void header() {
 		try {
 			System.out.println("Leyendo y escribiendo cabeceras...");
 			for (int i = 0; i < 4; i++) { // Omitimos la cabecera del fichero datosAemet.csv
@@ -62,7 +47,7 @@ public class D2017_11_07_Difference{
 		}
 	}
 
-	public void compare() {
+	void compare() {
 		try {
 			System.out.println("Comparando y escribiendo dias...");
 			while ((fMaestro != null) && (fMovimientos != null)) {
