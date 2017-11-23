@@ -18,7 +18,7 @@ public class PW extends JFrame implements ActionListener {
 	private JPanel p1, p2;
 	private int width = 800;
 	private int height = 800;
-	Grafica ga;
+	Grafica1 ga;
 
 	public PW() {
 		//Caracteristicas de la ventana principal
@@ -37,8 +37,8 @@ public class PW extends JFrame implements ActionListener {
 		
 		//Panel de los botones
 		p1 = new JPanel();
-//		ga = new Grafica(); //Instanciamos las graficas
-//		add(ga, BorderLayout.SOUTH);
+		ga = new Grafica1(); //Instanciamos las graficas
+		add(ga, BorderLayout.SOUTH);
 		p1.setBackground(Color.GRAY);
 		p1.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 
@@ -80,8 +80,7 @@ public class PW extends JFrame implements ActionListener {
 		if ((JButton) e.getSource() == b1) {
 			
 			p1.setVisible(false);
-			ga = new Grafica();
-			add(ga, BorderLayout.SOUTH);
+//			add(ga, BorderLayout.SOUTH);
 		} else if ((JButton) e.getSource() == b2) {
 			
 		} else if ((JButton) e.getSource() == b3) {
