@@ -28,8 +28,8 @@ public class Graphics1 extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		p1 = new JPanel();
 //		JButton b1 = new JButton("HOLA");
-		Panel p = new Panel();
-		add(p);
+//		Panel p = new Panel();
+//		add(p);
 		dibuja d = new dibuja();
 		
 		
@@ -42,11 +42,11 @@ public class Graphics1 extends JFrame {
 
 	public void paint (Graphics g) {	
 		super.paint(g);
-//		int xValues[]= {0,100,200,300,400,500};
-//		int yValues[]= {0,100,50,100,200,300,400};
-//		g.drawPolyline(xValues, yValues, 5);
-//		
-//		g.drawOval((int)97,(int)97, 5, 5);
+		int xValues[]= {0,100,200,300,400,500};
+		int yValues[]= {0,100,50,100,200,300,400};
+		g.drawPolyline(xValues, yValues, 5);
+		
+		g.drawOval((int)97,(int)97, 5, 5);
 	}
 	
 	public static void main(String[] args) {
