@@ -51,22 +51,22 @@ public class PW extends JFrame implements ActionListener {
 		p2.add(b1);
 
 		b2 = new JButton("Presion");
-		b1.addActionListener(this);
+		b2.addActionListener(this);
 		b2.setActionCommand("B2");
 		p2.add(b2);
 
 		b3 = new JButton("Precipitación");
-		b1.addActionListener(this);
+		b3.addActionListener(this);
 		b3.setActionCommand("B3");
 		p2.add(b3);
 
 		b4 = new JButton("Humedad");
-		b1.addActionListener(this);
+		b4.addActionListener(this);
 		b4.setActionCommand("B4");
 		p2.add(b4);
 
 		b5 = new JButton("Temperatura");
-		b1.addActionListener(this);
+		b5.addActionListener(this);
 		b5.setActionCommand("B5");
 		p2.add(b5);
 
