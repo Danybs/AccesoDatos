@@ -20,7 +20,6 @@ public class Grafica1 extends JPanel {
 		if (PW.isCheck()) {
 			
 			Grafica2.paintComponent(g);
-			Grafica2
 		} else {
 			super.paintComponent(g);
 			int xValues[] = { getWidth() / 2, 100, 200, 300, 400, 500 };
@@ -32,10 +31,14 @@ public class Grafica1 extends JPanel {
 
 class Grafica2 {
 	public static void paintComponent(Graphics g) {
+		
 //		int xValues[] = { 500, 100, 200, 300, 400, 500 };
 //		int yValues[] = { 400, 100, 50, 100, 200, 300, 400 };
 //		g.drawPolyline(xValues, yValues, 5);
-		
+		g.clearRect(0, 0, 1000, 1000);
 		g.fillRect(100, 100, 200, 200);
+		int xValues[] = { 20, 100, 200, 300, 400, 500 };
+		int yValues[] = { 20, 100, 50, 100, 200, 300, 400 };
+		g.drawPolyline(xValues, yValues, 5);
 	}
 }

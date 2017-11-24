@@ -97,7 +97,7 @@ public class PW extends JFrame implements ActionListener {
 			check=true;
 			p1.setVisible(false);
 			ga.setVisible(true);
-			
+			ga.repaint();
 		} else if ((JButton) e.getSource() == b2) {
 			check=false;
 			p1.setVisible(false);
