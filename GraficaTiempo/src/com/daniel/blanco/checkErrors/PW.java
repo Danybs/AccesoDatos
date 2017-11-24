@@ -3,6 +3,7 @@ package com.daniel.blanco.checkErrors;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,15 @@ public class PW extends JFrame implements ActionListener {
 	private JPanel p1, p2;
 	private int width = 800;
 	private int height = 800;
+	protected static boolean check = false;
+	public static boolean isCheck() {
+		return check;
+	}
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+
 	Grafica1 ga;
 
 	public PW() {
@@ -35,21 +45,27 @@ public class PW extends JFrame implements ActionListener {
 
 		getContentPane().setLayout(new BorderLayout());
 		
-		//Panel de los botones
+		//Panel de la grafica
 		p1 = new JPanel();
 		ga = new Grafica1(); //Instanciamos las graficas
-		add(ga, BorderLayout.SOUTH);
+		add(p1, BorderLayout.SOUTH);
 		p1.setBackground(Color.GRAY);
 		p1.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-
+		p1.setVisible(true);
+		
+		//Instanciamos las grafica
+		ga = new Grafica1();
+		add(ga);
+		ga.setVisible(false);		
 		
 		
-		//Panel de la grafica
+		//Panel de los botones
 		p2 = new JPanel();
 		add(p2, BorderLayout.NORTH);
 		p2.setBackground(Color.GRAY);
 		p2.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 6)));
 		p2.setLayout(new GridLayout(1, 5));
+		
 		
 		//Instanciamos botones
 		b1 = new JButton("Velocidad del viento");
@@ -78,13 +94,18 @@ public class PW extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if ((JButton) e.getSource() == b1) {
-			
+			check=true;
 			p1.setVisible(false);
-//			add(ga, BorderLayout.SOUTH);
+			ga.setVisible(true);
+			
 		} else if ((JButton) e.getSource() == b2) {
+			check=false;
+			p1.setVisible(false);
+			ga.setVisible(true);
+			ga.repaint();
 			
 		} else if ((JButton) e.getSource() == b3) {
-			
+	
 		} else if ((JButton) e.getSource() == b4) {
 			
 		} else if ((JButton) e.getSource() == b5) {
