@@ -151,7 +151,13 @@ public class PW extends JFrame implements ActionListener {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
+		ReadDifference o = new ReadDifference();
+		o.readFtoA();
+		o.init();
 		PW window = new PW();
+				
+	
+
 	}
 }

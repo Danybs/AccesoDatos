@@ -16,7 +16,7 @@ public class D2017_11_07_Difference{
 	private BufferedReader fMaestro, fMovimientos;
 	private BufferedWriter fEnfrentamientos;
 	private String lMaestro, lMovimientos;
-	private String head=("Fecha CET, Fecha GMT, Velocidad del viento (m/s), Presion atmosférica (Pa), Precipitación (mm), Humedad (1) , Temperatura (Cº)");
+	private String head=("Fecha GMT, Velocidad del viento (m/s), Presion atmosférica (Pa), Precipitación (mm), Humedad (1) , Temperatura (Cº)");
 	private 
 	
 	void read() {
@@ -60,19 +60,18 @@ public class D2017_11_07_Difference{
 					break; // que comparar
 				}
 				C_aemet d1 = new C_aemet(lMaestro.split(","));
-				C_stbn d2 = new C_stbn(lMovimientos.split(","));
+				C_pronostico d2 = new C_pronostico(lMovimientos.split(","));
 				if (d1.getFechaYhora().before(d2.getFechaYhora())) {// fechas
 					lMaestro = fMaestro.readLine();
 				} else if (d1.getFechaYhora().after(d2.getFechaYhora())) {
 					lMovimientos = fMovimientos.readLine();
 				} else {
 					C_writer d3 = new C_writer();
-					d3.setFechaYhora1(d1.getFechaYhora());
-					d3.setFechaYhora2(d2.getFechaYhora().toGMTString());
+//					d3.setFechaYhora1(d1.getFechaYhora());
+					d3.setFechaYhora2(d2.getFechaYhora());
 					d3.setVelVient(d1.getVelVient() - d2.getVelVient());
 					d3.setPresion(d1.getPresion() - d2.getPresion());
 					d3.setPrecipi(d1.getPrecipi() - d2.getPrecipi());
-					System.out.println(d1.getPrecipi()-d2.getPrecipi());
 					d3.setHumedad(d1.getHumedad() - d2.getHumedad());
 					d3.setTemperatura(d1.getTemp() - d2.getTemp());
 					fEnfrentamientos.write(d3.toString());

@@ -11,7 +11,7 @@ import java.util.TimeZone;
  * mod[unit="m s-1"],mslp[unit="Pa"],prec[unit="kg m-2"],rh[unit="1"],temp[unit="K"]
  */
 
-public class C_stbn{
+public class C_pronostico{
 	DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");// Damos formato a la fecha
 	TimeZone gmtTime = TimeZone.getTimeZone("GMT");
 	Date fechaYhora;
@@ -24,7 +24,7 @@ public class C_stbn{
 	float humedad;
 	float temp;
 
-	public C_stbn(String campos[]) throws ParseException {
+	public C_pronostico(String campos[]) throws ParseException {
 		format.setTimeZone(gmtTime);//Cuando se almacene la fecha en el objeto lo hara en formato GMT
 		fechaYhora = format.parse(campos[0]);
 		lat = Float.parseFloat(campos[1]);
