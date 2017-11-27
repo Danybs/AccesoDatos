@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class C_datos {
-	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
 
 	private Date fechaYhora;
 	private int temp;
@@ -28,7 +28,6 @@ public class C_datos {
 	}
 
 	public Date getFechaYhora() {
-
 		return fechaYhora;
 	}
 

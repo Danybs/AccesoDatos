@@ -21,6 +21,9 @@ public class PW extends JFrame implements ActionListener {
 	private int height = 800;
 	protected static boolean C1 = false, C2 = false, C3 = false, C4 = false, C5 = false;
 
+	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
+	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
+	
 	public static boolean isC1() {
 		return C1;
 	}
@@ -66,9 +69,9 @@ public class PW extends JFrame implements ActionListener {
 		p1.setVisible(true);
 
 		// Instanciamos las grafica
-		ga = new Grafica1();
+		
+		ga = new Grafica1(xValues,yValues);
 		add(ga);
-		ga.setVisible(false);
 
 		// Panel de los botones
 		p2 = new JPanel();

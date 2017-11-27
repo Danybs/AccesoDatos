@@ -59,8 +59,7 @@ public class ReadDifference {
 			cont++;
 		}		
 	}
-	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
-	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
+	
 //	protected int xValues[];
 //	void values() {
 //

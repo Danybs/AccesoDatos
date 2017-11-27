@@ -7,8 +7,10 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Grafica1 extends JPanel {
+	int xValues[], yValues[];
 	Grafica1(int xValues[], int yValues[]) {
-
+		this.xValues=xValues;
+		this.yValues=yValues;
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -16,7 +18,7 @@ public class Grafica1 extends JPanel {
 		if (PW.isC1()) {
 			super.paintComponent(g);
 			ReadDifference o = new ReadDifference();
-			g.drawPolyline(o.xValues, o.velViento, o.xValues.length);
+			g.drawPolyline(xValues, yValues, xValues.length);
 		} else if (PW.isC2()) {
 			Grafica2.paintComponent(g);
 		} else if (PW.isC3()) {
