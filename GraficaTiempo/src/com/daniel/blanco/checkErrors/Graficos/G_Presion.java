@@ -2,11 +2,16 @@ package com.daniel.blanco.checkErrors.Graficos;
 
 import java.awt.Graphics;
 
-public class G_Presion {
-	G_Presion(int xValues[], int yValues[]) {
+import javax.swing.JPanel;
 
+public class G_Presion extends JPanel{
+	private int xValues[];
+	private int yValues[];
+	G_Presion(int xValues[], int yValues[]) {
+		this.xValues=xValues;
+		this.yValues=yValues;
 	}
-	public static void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) {
 		g.clearRect(0, 0, 800, 800);
 		g.fillRect(100, 100, 200, 200);
 		int xValues[] = { 600, 100, 200, 300, 400, 500 };

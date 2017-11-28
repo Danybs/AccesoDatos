@@ -21,32 +21,17 @@ public class PW extends JFrame implements ActionListener {
 	private JPanel p1, p2, comienzo;
 	private int width = 800;
 	private int height = 800;
-	protected static boolean C1 = false, C2 = false, C3 = false, C4 = false, C5 = false;
 
 	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
 	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
 
-	public static boolean isC1() {
-		return C1;
-	}
-
-	public static boolean isC2() {
-		return C2;
-	}
-
-	public static boolean isC3() {
-		return C3;
-	}
-
-	public static boolean isC4() {
-		return C4;
-	}
-
-	public static boolean isC5() {
-		return C5;
-	}
 
 	G_Viento g_v;
+	G_Humedad g_h;
+	G_Precipitacion g_p;
+	G_Presion g_pr;
+	G_Temperatura g_t;
+	
 	
 	public PW() {
 		// Caracteristicas de la ventana principal
@@ -68,16 +53,39 @@ public class PW extends JFrame implements ActionListener {
 		p1.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		add(p1, BorderLayout.SOUTH);
 		p1.setBackground(Color.WHITE);
+		p1.setVisible(false);
 
 		// Intro
 
 
 		// Instanciamos las grafica
-
+		//Viento
 		g_v = new G_Viento(xValues, yValues);
 		g_v.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_v.setBackground(Color.WHITE);
 		p1.add(g_v);		
+		
+		//Humedad
+		g_h = new G_Humedad(xValues, yValues);
+		g_h.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_h.setBackground(Color.WHITE);
+		p1.add(g_h);	
+		//Precipitacion
+		g_p = new G_Precipitacion(xValues, yValues);
+		g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_p.setBackground(Color.WHITE);
+		p1.add(g_p);	
+		//Presion
+		g_pr = new G_Presion(xValues, yValues);
+		g_pr.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_pr.setBackground(Color.WHITE);
+		p1.add(g_pr);	
+		//Temperatura
+		g_t = new G_Temperatura(xValues, yValues);
+		g_t.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_t.setBackground(Color.WHITE);
+		p1.add(g_t);	
+		
 
 		// Panel de los botones
 		p2 = new JPanel();
@@ -110,43 +118,41 @@ public class PW extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if ((JButton) e.getSource() == b1) {
-			C1 = true;
-			C2 = false;
-			C3 = false;
-			C4 = false;
-			C5 = false;
-			g_v.repaint();
+			p1.setVisible(true);
+			g_v.setVisible(true);
+			g_h.setVisible(false);
+			g_p.setVisible(false);
+			g_pr.setVisible(false);
+			g_p.setVisible(false);
 		} else if ((JButton) e.getSource() == b2) {
-			C1 = false;
-			C2 = true;
-			C3 = false;
-			C4 = false;
-			C5 = false;
-			g_v.repaint();
+			p1.setVisible(true);
+			g_v.setVisible(false);
+			g_h.setVisible(true);
+			g_p.setVisible(false);
+			g_pr.setVisible(false);
+			g_p.setVisible(false);		
 		} else if ((JButton) e.getSource() == b3) {
-			C1 = false;
-			C2 = false;
-			C3 = true;
-			C4 = false;
-			C5 = false;
-			g_v.repaint();
+			p1.setVisible(true);
+			g_v.setVisible(false);
+			g_h.setVisible(false);
+			g_p.setVisible(true);
+			g_pr.setVisible(false);
+			g_p.setVisible(false);
 		} else if ((JButton) e.getSource() == b4) {
-			C1 = false;
-			C2 = false;
-			C3 = false;
-			C4 = true;
-			C5 = false;
-			g_v.repaint();
-
+			p1.setVisible(true);
+			g_v.setVisible(false);
+			g_h.setVisible(false);
+			g_p.setVisible(false);
+			g_pr.setVisible(true);
+			g_p.setVisible(false);			
 		} else if ((JButton) e.getSource() == b5) {
-			C1 = false;
-			C2 = false;
-			C3 = false;
-			C4 = false;
-			C5 = true;
-			g_v.repaint();
+			p1.setVisible(true);
+			g_v.setVisible(false);
+			g_h.setVisible(false);
+			g_p.setVisible(false);
+			g_pr.setVisible(false);
+			g_p.setVisible(true);
 		}
 	}
 
