@@ -2,6 +2,7 @@ package com.daniel.blanco.checkErrors.Graficos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -21,9 +22,10 @@ public class PW extends JFrame implements ActionListener {
 	private int height = 800;
 	protected static boolean C1 = false, C2 = false, C3 = false, C4 = false, C5 = false;
 
-	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
-	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
-	
+	Grafica gf1;
+	private int xValues[];
+	private int yValues[];
+
 	public static boolean isC1() {
 		return C1;
 	}
@@ -44,14 +46,12 @@ public class PW extends JFrame implements ActionListener {
 		return C5;
 	}
 
-	Grafica1 ga;
-
 	public PW() {
 		// Caracteristicas de la ventana principal
 		setTitle("Graficas");
 
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		pack(); //default size
+		pack(); // default size
 		setResizable(false);
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -70,8 +70,9 @@ public class PW extends JFrame implements ActionListener {
 
 		// Instanciamos las grafica
 		
-		ga = new Grafica1(xValues,yValues);
-		add(ga);
+		gf1 = new Grafica(xValues, yValues);
+		add(gf1);
+		
 
 		// Panel de los botones
 		p2 = new JPanel();
@@ -101,28 +102,34 @@ public class PW extends JFrame implements ActionListener {
 		b5.addActionListener(this);
 		p2.add(b5);
 	}
-
+	Grafica4 g;
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if ((JButton) e.getSource() == b1) {
+			xValues = new int[] { 227, 100, 200, 300, 400, 500 };
+			yValues = new int[] { 227, 100, 50, 100, 200, 300, 400};	
 			C1 = true;
 			C2 = false;
 			C3 = false;
 			C4 = false;
 			C5 = false;
 			p1.setVisible(false);
-			ga.setVisible(true);
-			ga.repaint();
+			gf1.setVisible(true);
+			gf1.repaint();
+			
 		} else if ((JButton) e.getSource() == b2) {
+			g = new Grafica4(xValues, yValues);
+			add(g);
+			xValues = new int[] { 67, 100, 200, 300, 400, 500 };
+			yValues = new int[] { 67, 100, 50, 100, 200, 300, 400};	
 			C1 = false;
 			C2 = true;
 			C3 = false;
 			C4 = false;
 			C5 = false;
 			p1.setVisible(false);
-			ga.setVisible(true);
-			ga.repaint();
+			gf1.setVisible(true);
+			gf1.repaint();
 		} else if ((JButton) e.getSource() == b3) {
 			C1 = false;
 			C2 = false;
@@ -130,8 +137,8 @@ public class PW extends JFrame implements ActionListener {
 			C4 = false;
 			C5 = false;
 			p1.setVisible(false);
-			ga.setVisible(true);
-			ga.repaint();
+			gf1.setVisible(true);
+			gf1.repaint();
 		} else if ((JButton) e.getSource() == b4) {
 			C1 = false;
 			C2 = false;
@@ -139,8 +146,8 @@ public class PW extends JFrame implements ActionListener {
 			C4 = true;
 			C5 = false;
 			p1.setVisible(false);
-			ga.setVisible(true);
-			ga.repaint();
+			gf1.setVisible(true);
+			gf1.repaint();
 
 		} else if ((JButton) e.getSource() == b5) {
 			C1 = false;
@@ -149,18 +156,16 @@ public class PW extends JFrame implements ActionListener {
 			C4 = false;
 			C5 = true;
 			p1.setVisible(false);
-			ga.setVisible(true);
-			ga.repaint();
+			gf1.setVisible(true);
+			gf1.repaint();
 		}
 	}
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		ReadDifference o = new ReadDifference();
 		o.readFtoA();
 		o.init();
 		PW window = new PW();
-				
-	
 
 	}
 }
