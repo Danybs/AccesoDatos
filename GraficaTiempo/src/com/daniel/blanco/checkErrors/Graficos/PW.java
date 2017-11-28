@@ -2,9 +2,9 @@ package com.daniel.blanco.checkErrors.Graficos;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,18 +13,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 public class PW extends JFrame implements ActionListener {
 
 	private JButton b1, b2, b3, b4, b5;
-	private JPanel p1, p2;
+	private JPanel p1, p2, comienzo;
 	private int width = 800;
 	private int height = 800;
 	protected static boolean C1 = false, C2 = false, C3 = false, C4 = false, C5 = false;
 
-	Grafica gf1;
-	private int xValues[];
-	private int yValues[];
+	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
+	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
 
 	public static boolean isC1() {
 		return C1;
@@ -46,6 +46,8 @@ public class PW extends JFrame implements ActionListener {
 		return C5;
 	}
 
+	G_Viento g_v;
+	
 	public PW() {
 		// Caracteristicas de la ventana principal
 		setTitle("Graficas");
@@ -63,23 +65,26 @@ public class PW extends JFrame implements ActionListener {
 
 		// Panel de la grafica
 		p1 = new JPanel();
+		p1.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		add(p1, BorderLayout.SOUTH);
 		p1.setBackground(Color.WHITE);
-		p1.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-		p1.setVisible(true);
+
+		// Intro
+
 
 		// Instanciamos las grafica
-		
-		gf1 = new Grafica(xValues, yValues);
-		add(gf1);
-		
+
+		g_v = new G_Viento(xValues, yValues);
+		g_v.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_v.setBackground(Color.WHITE);
+		p1.add(g_v);		
 
 		// Panel de los botones
 		p2 = new JPanel();
-		add(p2, BorderLayout.NORTH);
 		p2.setBackground(Color.WHITE);
 		p2.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 6)));
-		p2.setLayout(new GridLayout(1, 5));
+		p2.setLayout(new GridLayout(0, 5));
+		add(p2, BorderLayout.NORTH);
 
 		// Instanciamos botones
 		b1 = new JButton("Velocidad del viento");
@@ -102,52 +107,38 @@ public class PW extends JFrame implements ActionListener {
 		b5.addActionListener(this);
 		p2.add(b5);
 	}
-	Grafica4 g;
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		if ((JButton) e.getSource() == b1) {
-			xValues = new int[] { 227, 100, 200, 300, 400, 500 };
-			yValues = new int[] { 227, 100, 50, 100, 200, 300, 400};	
 			C1 = true;
 			C2 = false;
 			C3 = false;
 			C4 = false;
 			C5 = false;
-			p1.setVisible(false);
-			gf1.setVisible(true);
-			gf1.repaint();
-			
+			g_v.repaint();
 		} else if ((JButton) e.getSource() == b2) {
-			g = new Grafica4(xValues, yValues);
-			add(g);
-			xValues = new int[] { 67, 100, 200, 300, 400, 500 };
-			yValues = new int[] { 67, 100, 50, 100, 200, 300, 400};	
 			C1 = false;
 			C2 = true;
 			C3 = false;
 			C4 = false;
 			C5 = false;
-			p1.setVisible(false);
-			gf1.setVisible(true);
-			gf1.repaint();
+			g_v.repaint();
 		} else if ((JButton) e.getSource() == b3) {
 			C1 = false;
 			C2 = false;
 			C3 = true;
 			C4 = false;
 			C5 = false;
-			p1.setVisible(false);
-			gf1.setVisible(true);
-			gf1.repaint();
+			g_v.repaint();
 		} else if ((JButton) e.getSource() == b4) {
 			C1 = false;
 			C2 = false;
 			C3 = false;
 			C4 = true;
 			C5 = false;
-			p1.setVisible(false);
-			gf1.setVisible(true);
-			gf1.repaint();
+			g_v.repaint();
 
 		} else if ((JButton) e.getSource() == b5) {
 			C1 = false;
@@ -155,9 +146,7 @@ public class PW extends JFrame implements ActionListener {
 			C3 = false;
 			C4 = false;
 			C5 = true;
-			p1.setVisible(false);
-			gf1.setVisible(true);
-			gf1.repaint();
+			g_v.repaint();
 		}
 	}
 
