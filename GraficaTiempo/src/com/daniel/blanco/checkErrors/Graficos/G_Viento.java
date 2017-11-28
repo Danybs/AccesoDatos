@@ -5,19 +5,22 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class G_Viento extends JPanel {
-	private int xValues[]; 
 	private int yValues[];
-	G_Viento(int xValues[], int yValues[]) {
-		this.xValues=xValues;
-		this.yValues=yValues;
+	private int xValues[];
+	G_Viento(int yValues[]) {
+		System.out.println(yValues[0]);
+		System.out.println(yValues[1]);
+		this.yValues=yValues;	
+		xValues = new int[yValues.length];
+		for (int i = 0; i <yValues.length; i++) {
+			xValues[i]= 30 + i * 15;			
+		}
 	}
+	
 	@Override
 	protected void paintComponent(Graphics g) {
-		g.clearRect(0, 0, 800, 800);
-		g.fillRect(100, 100, 200, 200);
-		int xValues[] = { 67, 100, 200, 300, 400, 500 };
-		int yValues[] = { 67, 100, 50, 100, 200, 300, 400 };
-		g.drawPolyline(xValues, yValues, 5);
+//		g.clearRect(0, 0, 800, 800);
+		g.drawPolyline(xValues, yValues, xValues.length);
 	}
 }
 

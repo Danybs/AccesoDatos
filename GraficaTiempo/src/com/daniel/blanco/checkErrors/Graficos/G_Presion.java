@@ -7,8 +7,7 @@ import javax.swing.JPanel;
 public class G_Presion extends JPanel{
 	private int xValues[];
 	private int yValues[];
-	G_Presion(int xValues[], int yValues[]) {
-		this.xValues=xValues;
+	G_Presion(int yValues[]) {
 		this.yValues=yValues;
 	}
 	public void paintComponent(Graphics g) {

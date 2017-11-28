@@ -7,8 +7,7 @@ import javax.swing.JPanel;
 public class G_Temperatura extends JPanel{
 	private int xValues[];
 	private int yValues[];
-	G_Temperatura(int xValues[], int yValues[]) {
-		this.xValues=xValues;
+	G_Temperatura(int yValues[]) {
 		this.yValues=yValues;
 	}
 	public void paintComponent(Graphics g) {

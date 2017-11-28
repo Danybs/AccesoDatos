@@ -22,9 +22,8 @@ public class PW extends JFrame implements ActionListener {
 	private int width = 800;
 	private int height = 800;
 
-	protected int xValues[] = { 50, 100, 200, 300, 400, 500 };
-	protected int yValues[] = { 50, 100, 50, 100, 200, 300, 400 };
-
+	ReadDifference datos;
+	private int yValues[];
 
 	G_Viento g_v;
 	G_Humedad g_h;
@@ -57,31 +56,36 @@ public class PW extends JFrame implements ActionListener {
 
 		// Intro
 
-
+//		velViento[cont]=o.getVelVient();
+//		fechas[cont]=o.getFechaYhora();
+//		presionAtm[cont]=o.getHumedad();
+//		precipitacion[cont]=o.getHumedad();
+//		temperatura[cont]=o.getTemp();
 		// Instanciamos las grafica
 		//Viento
-		g_v = new G_Viento(xValues, yValues);
+		datos = new ReadDifference();
+		g_v = new G_Viento(datos.velViento);
 		g_v.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_v.setBackground(Color.WHITE);
 		p1.add(g_v);		
 		
 		//Humedad
-		g_h = new G_Humedad(xValues, yValues);
+		g_h = new G_Humedad(yValues);
 		g_h.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_h.setBackground(Color.WHITE);
 		p1.add(g_h);	
 		//Precipitacion
-		g_p = new G_Precipitacion(xValues, yValues);
+		g_p = new G_Precipitacion(yValues);
 		g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_p.setBackground(Color.WHITE);
 		p1.add(g_p);	
 		//Presion
-		g_pr = new G_Presion(xValues, yValues);
+		g_pr = new G_Presion(yValues);
 		g_pr.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_pr.setBackground(Color.WHITE);
 		p1.add(g_pr);	
 		//Temperatura
-		g_t = new G_Temperatura(xValues, yValues);
+		g_t = new G_Temperatura(yValues);
 		g_t.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_t.setBackground(Color.WHITE);
 		p1.add(g_t);	
@@ -160,6 +164,9 @@ public class PW extends JFrame implements ActionListener {
 		ReadDifference o = new ReadDifference();
 		o.readFtoA();
 		o.init();
+//		for (int i = 0; i < o.velViento.length; i++) {
+//			System.out.println(o.velViento[i]);
+//		}
 		PW window = new PW();
 
 	}

@@ -7,8 +7,7 @@ import javax.swing.JPanel;
 public class G_Humedad extends JPanel{
 	private int xValues[];
 	private int yValues[];
-	G_Humedad(int xValues[], int yValues[]) {
-		this.xValues=xValues;
+	G_Humedad(int yValues[]) {
 		this.yValues=yValues;
 	}
 	public void paintComponent(Graphics g) {

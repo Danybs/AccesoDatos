@@ -51,7 +51,7 @@ public class ReadDifference {
 		int cont=0;
 		
 		for (C_datos o : list) {
-			velViento[cont]=o.getVelVient();
+			velViento+=o.getVelVient();
 			fechas[cont]=o.getFechaYhora();
 			presionAtm[cont]=o.getHumedad();
 			precipitacion[cont]=o.getHumedad();
@@ -60,14 +60,4 @@ public class ReadDifference {
 		}		
 	}
 	
-//	protected int xValues[];
-//	void values() {
-//
-//		xValues = new int[velViento.length];
-//		for (int i = 0; i <velViento.length; i++) {
-//			xValues[i]= 30 + i;
-//			System.out.println(xValues[i]);
-//			
-//		}	
-//	}
 }
