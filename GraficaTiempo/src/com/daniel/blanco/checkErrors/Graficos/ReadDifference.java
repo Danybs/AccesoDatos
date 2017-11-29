@@ -2,9 +2,11 @@ package com.daniel.blanco.checkErrors.Graficos;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Locale;
 
 import com.daniel.blanco.checkErrors.C_writer;
 
@@ -16,15 +18,15 @@ public class ReadDifference {
 	private String rLine;
 	private ArrayList<C_datos> list = new ArrayList<C_datos>();
 	private C_datos o1;
-	private Date[] fechas;
-	protected int[] velViento, presionAtm, precipitacion, humedad, temperatura;
+	protected String fechas="";
+	protected String velViento, presionAtm, precipitacion, humedad, temperatura;
 
 	void readFtoA() {
 		try {
 			r = new BufferedReader(new FileReader("Enfrentamientos.csv"));
 			rLine = r.readLine();
 			while((rLine=r.readLine())!=null) {
-			rLine = rLine.replaceAll("\"", "");
+			rLine = rLine.replaceAll("\"", "");			
 			o1 = new C_datos(rLine.split(","));
 			list.add(o1);
 			}			
@@ -40,24 +42,29 @@ public class ReadDifference {
 			e.printStackTrace();
 		}
 	}
-	
-	void init() {
-		fechas = new Date[list.size()];
-		velViento = new int[list.size()];
-		presionAtm = new int[list.size()];
-		precipitacion = new int[list.size()];
-		humedad = new int[list.size()];
-		temperatura = new int[list.size()];
+	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
+	void init() {		
 		int cont=0;
-		
 		for (C_datos o : list) {
-			velViento+=o.getVelVient();
-			fechas[cont]=o.getFechaYhora();
-			presionAtm[cont]=o.getHumedad();
-			precipitacion[cont]=o.getHumedad();
-			temperatura[cont]=o.getTemp();
+			if(cont==0) {
+			velViento=Integer.toString(o.getVelVient());
+			fechas=format.format(o.getFechaYhora());
+			presionAtm=Integer.toString(o.getPresion());
+			precipitacion+=Integer.toString(o.getPrecipi());
+			temperatura=Integer.toString(o.getTemp());
+			humedad=Integer.toString(o.getHumedad());
+			}
+			else {
+			velViento+=","+o.getVelVient();
+			fechas+=","+o.getFechaYhora();
+			presionAtm+=","+o.getPresion();
+			precipitacion+=","+o.getPrecipi();
+			temperatura+=","+o.getTemp();
+			humedad+=","+o.getHumedad();
+			}
 			cont++;
-		}		
+		}	
 	}
+
 	
 }
