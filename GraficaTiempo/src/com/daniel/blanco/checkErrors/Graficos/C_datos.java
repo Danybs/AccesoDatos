@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class C_datos {
-	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
-
+//	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
+	private DateFormat format = new SimpleDateFormat("yyy MMM dd HH:mm:ss zzz yyyy", Locale.UK);
 	private Date fechaYhora;
 	private int temp;
 	private int velVient;

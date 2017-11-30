@@ -11,7 +11,7 @@ public class C_writer {
 	Date fechaYhora1;
 	Date fechaYhora2;
 	float velVient, presion, precipi, humedad, temperatura;
-	DecimalFormat df = new DecimalFormat("0");// Damos formato de 2 digitos
+	DecimalFormat df = new DecimalFormat("#0");// Damos formato de 2 digitos
 
 //	public void setFechaYhora1(Date fechaYhora1) {
 //		this.fechaYhora1 = fechaYhora1;

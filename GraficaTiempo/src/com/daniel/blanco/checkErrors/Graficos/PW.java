@@ -30,9 +30,11 @@ public class PW extends JFrame implements ActionListener {
 	G_Presion g_pr;
 	G_Temperatura g_t;
 	
+	String dias[];
 	String Viento[];
-	public PW(String Viento[]) {
+	public PW(String Viento[],String dias[]) {
 		this.Viento=Viento;
+		this.dias=dias;
 		// Caracteristicas de la ventana principal
 		setTitle("Graficas");
 
@@ -60,7 +62,7 @@ public class PW extends JFrame implements ActionListener {
 		// Instanciamos las grafica
 		//Viento
 		
-		g_v = new G_Viento(Viento);
+		g_v = new G_Viento(Viento,dias);
 		g_v.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_v.setBackground(Color.WHITE);
 		p1.add(g_v);		
@@ -160,7 +162,7 @@ public class PW extends JFrame implements ActionListener {
 		ReadDifference o = new ReadDifference();
 		o.readFtoA();
 		o.init();
-		PW window = new PW(o.velViento.split(","));
+		PW window = new PW(o.velViento.split(","),o.fechas.split(","));
 		
 
 	}
