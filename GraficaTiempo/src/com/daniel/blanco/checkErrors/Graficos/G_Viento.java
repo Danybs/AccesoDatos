@@ -42,30 +42,12 @@ public class G_Viento extends JPanel {
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
-//		// Leyenda en vertical
-//		Graphics2D g3 = (Graphics2D) g;
-//		Font font = new Font("Arial", Font.PLAIN, 14);
-//		AffineTransform affineTransform = new AffineTransform();
-//		affineTransform.rotate(Math.toRadians(30), 0, 0);
-//		Font rotatedFont = font.deriveFont(affineTransform);
-//		g3.setFont(rotatedFont);
 		
-		
-		
-//		//Dias y numeros leyenda
-//		g3.setColor(Color.darkGray);
-//		
-//		for (int i = 4; i < dias.length; i += 6) {
-//			g3.setColor(Color.darkGray);
-//			g3.drawLine(50+i*proporcionX, 365, 50+i*proporcionX, 400);
-//			g3.setColor(Color.WHITE);
-//			g3.drawString(dias[i], 40 + (i * proporcionX), 380);
-//			}
 		
 		//Pie de pagina
 		g.drawString("Daniel Blanco Sanz Copyright © Todos los Derechos Reservados", initX, finalY+100);
 		
-		//Leyenda X
+		//Leyenda Y
 		int k=0;
 		int lastPy=0;
 		for (int i = 12; i > -1; i--) {
@@ -77,10 +59,7 @@ public class G_Viento extends JPanel {
 			g.drawString((Integer.toString(i)), initX-30, lastPy+(k*proporcionY));
 			k++;
 		}
-		//Leyenda Y
-		for (int i = 0; i < dias.length; i++) {
-			g.drawString((Integer.toString(i)), initX+(i*proporcionX), finalY+20);
-		}
+		
 		//Eje X
 		g.setColor(Color.gray);
 		for (int i = 0; i<25 ; i++) {
@@ -91,6 +70,31 @@ public class G_Viento extends JPanel {
 		for (int i = 0; i < yValuesInt.length; i++) {
 			g.drawLine(initX+(i*proporcionX), initY, initX+(i*proporcionX), finalY);
 		}
+		
+		// Leyenda en vertical
+				Graphics2D g3 = (Graphics2D) g;
+				Font font = new Font("TimesNewRoman", Font.BOLD, 14);
+				AffineTransform affineTransform = new AffineTransform();
+				affineTransform.rotate(Math.toRadians(90), 0, 0);
+				Font rotatedFont = font.deriveFont(affineTransform);
+				g3.setFont(rotatedFont);
+				g3.setColor(Color.BLACK);
+				
+				//Leyenda X
+				for (int i = 0; i < dias.length; i++) {
+					g3.drawString((Integer.toString(i)), initX+(i*proporcionX), finalY+20);
+				}
+				
+				//Dias y numeros leyenda
+//				g3.setColor(Color.darkGray);
+				
+//				for (int i = 4; i < dias.length; i += 6) {
+//					g3.setColor(Color.darkGray);
+//					g3.drawLine(50+i*proporcionX, 365, 50+i*proporcionX, 400);
+//					g3.setColor(Color.WHITE);
+//					g3.drawString(dias[i], 40 + (i * proporcionX), 380);
+//					}
+				
 		Graphics2D g2 = (Graphics2D) g;
 	    g2.setStroke(new BasicStroke(3));
 		g2.setColor(Color.BLACK);
