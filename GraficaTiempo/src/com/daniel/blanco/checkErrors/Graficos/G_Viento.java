@@ -45,7 +45,7 @@ public class G_Viento extends JPanel {
 		
 		
 		//Pie de pagina
-		g.drawString("Daniel Blanco Sanz Copyright © Todos los Derechos Reservados", initX, finalY+100);
+//		g.drawString("Daniel Blanco Sanz Copyright © Todos los Derechos Reservados", initX, finalY+100);
 		
 		//Leyenda Y
 		int k=0;
@@ -73,7 +73,7 @@ public class G_Viento extends JPanel {
 		
 		// Leyenda en vertical
 				Graphics2D g3 = (Graphics2D) g;
-				Font font = new Font("TimesNewRoman", Font.BOLD, 14);
+				Font font = new Font("TimesNewRoman", Font.PLAIN, 12);
 				AffineTransform affineTransform = new AffineTransform();
 				affineTransform.rotate(Math.toRadians(90), 0, 0);
 				Font rotatedFont = font.deriveFont(affineTransform);
@@ -82,18 +82,10 @@ public class G_Viento extends JPanel {
 				
 				//Leyenda X
 				for (int i = 0; i < dias.length; i++) {
-					g3.drawString((Integer.toString(i)), initX+(i*proporcionX), finalY+20);
+					g3.drawString(dias[i], initX+(i*proporcionX), finalY+20);
 				}
 				
-				//Dias y numeros leyenda
-//				g3.setColor(Color.darkGray);
 				
-//				for (int i = 4; i < dias.length; i += 6) {
-//					g3.setColor(Color.darkGray);
-//					g3.drawLine(50+i*proporcionX, 365, 50+i*proporcionX, 400);
-//					g3.setColor(Color.WHITE);
-//					g3.drawString(dias[i], 40 + (i * proporcionX), 380);
-//					}
 				
 		Graphics2D g2 = (Graphics2D) g;
 	    g2.setStroke(new BasicStroke(3));

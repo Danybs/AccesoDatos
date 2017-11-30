@@ -18,7 +18,7 @@ public class ReadDifference {
 	private String rLine;
 	private ArrayList<C_datos> list = new ArrayList<C_datos>();
 	private C_datos o1;
-	protected String fechas="";
+	protected String fechas;
 	protected String velViento, presionAtm, precipitacion, humedad, temperatura;
 
 	void readFtoA() {
@@ -42,7 +42,8 @@ public class ReadDifference {
 			e.printStackTrace();
 		}
 	}
-	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
+//	private DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.UK);
+	private DateFormat format = new SimpleDateFormat("HH:mm dd/MM/yyyy", Locale.UK);
 	void init() {		
 		int cont=0;
 		for (C_datos o : list) {
@@ -55,12 +56,12 @@ public class ReadDifference {
 			humedad=Integer.toString(o.getHumedad());
 			}
 			else {
-			velViento+=","+o.getVelVient();
-			fechas+=","+o.getFechaYhora();
-			presionAtm+=","+o.getPresion();
-			precipitacion+=","+o.getPrecipi();
-			temperatura+=","+o.getTemp();
-			humedad+=","+o.getHumedad();
+			velViento+=","+Integer.toString(o.getVelVient());
+			fechas+=","+format.format(o.getFechaYhora());
+			presionAtm+=","+Integer.toString(o.getPresion());
+			precipitacion+=","+Integer.toString(o.getPrecipi());
+			temperatura+=","+Integer.toString(o.getTemp());
+			humedad+=","+Integer.toString(o.getHumedad());
 			}
 			cont++;
 		}	
