@@ -49,19 +49,19 @@ public class ReadDifference {
 		for (C_datos o : list) {
 			if(cont==0) {
 			velViento=Integer.toString(o.getVelVient());
-			fechas=format.format(o.getFechaYhora());
 			presionAtm=Integer.toString(o.getPresion());
 			precipitacion+=Integer.toString(o.getPrecipi());
-			temperatura=Integer.toString(o.getTemp());
 			humedad=Integer.toString(o.getHumedad());
+			temperatura=Integer.toString(o.getTemp());
+			fechas=format.format(o.getFechaYhora());	
 			}
 			else {
-			velViento+=","+Integer.toString(o.getVelVient());
-			fechas+=","+format.format(o.getFechaYhora());
+			velViento+=","+Integer.toString(o.getVelVient());			
 			presionAtm+=","+Integer.toString(o.getPresion());
 			precipitacion+=","+Integer.toString(o.getPrecipi());
-			temperatura+=","+Integer.toString(o.getTemp());
 			humedad+=","+Integer.toString(o.getHumedad());
+			temperatura+=","+Integer.toString(o.getTemp());	
+			fechas+=","+format.format(o.getFechaYhora());
 			}
 			cont++;
 		}	

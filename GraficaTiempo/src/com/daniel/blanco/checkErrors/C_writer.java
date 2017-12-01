@@ -44,7 +44,7 @@ public class C_writer {
 	@Override
 	public String toString() {
 		return "\"" + fechaYhora2 + "\"" + "," + "\"" + df.format(velVient) + "\""
-				+ "," + "\"" + "\"" + df.format(presion) + "\"" + "," + "\"" + df.format(precipi) + "\"" + "," + "\""
+				+ "," + "\"" + df.format(presion) + "\"" + "," + "\"" + df.format(precipi) + "\"" + "," + "\""
 				+ df.format(humedad) + "\"" + "," + "\"" + df.format(temperatura) + "\"";
 	}
 

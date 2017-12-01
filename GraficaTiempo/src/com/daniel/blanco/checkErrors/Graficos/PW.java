@@ -19,7 +19,7 @@ public class PW extends JFrame implements ActionListener {
 
 	private JButton b1, b2, b3, b4, b5;
 	private JPanel p1, p2, comienzo;
-	private int width = 800;
+	private int width = 1000;
 	private int height = 800;
 
 	ReadDifference datos;
@@ -29,12 +29,16 @@ public class PW extends JFrame implements ActionListener {
 	G_Precipitacion g_p;
 	G_Presion g_pr;
 	G_Temperatura g_t;
-	
-	String dias[];
-	String Viento[];
-	public PW(String Viento[],String dias[]) {
-		this.Viento=Viento;
-		this.dias=dias;
+
+	String dias[], Viento[], Precipitacion[], Humedad[], Temperatura[];
+
+	public PW(String Viento[], String Presion[], String Precipitacion[], String Humedad[], String Temperatura[],
+			String dias[]) {
+		this.Viento = Viento;
+		this.dias = dias;
+		this.Precipitacion = Precipitacion;
+		this.Humedad = Humedad;
+		this.Temperatura = Temperatura;
 		// Caracteristicas de la ventana principal
 		setTitle("Graficas");
 
@@ -58,36 +62,35 @@ public class PW extends JFrame implements ActionListener {
 
 		// Intro
 
-
 		// Instanciamos las grafica
-		//Viento
-		
-		g_v = new G_Viento(Viento,dias);
+		// Viento
+		g_v = new G_Viento(Viento, dias);
 		g_v.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
 		g_v.setBackground(Color.WHITE);
-		p1.add(g_v);		
-		
-		//Humedad
-//		g_h = new G_Humedad(yValues);
-//		g_h.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-//		g_h.setBackground(Color.WHITE);
-//		p1.add(g_h);	
-//		//Precipitacion
-//		g_p = new G_Precipitacion(yValues);
-//		g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-//		g_p.setBackground(Color.WHITE);
-//		p1.add(g_p);	
-//		//Presion
-//		g_pr = new G_Presion(yValues);
-//		g_pr.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-//		g_pr.setBackground(Color.WHITE);
-//		p1.add(g_pr);	
-//		//Temperatura
-//		g_t = new G_Temperatura(yValues);
-//		g_t.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-//		g_t.setBackground(Color.WHITE);
-//		p1.add(g_t);	
-		
+		p1.add(g_v);
+		// Presion
+		g_pr = new G_Presion(Presion, dias);
+		g_pr.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_pr.setBackground(Color.WHITE);
+		p1.add(g_pr);
+
+		// //Precipitacion
+		// g_p = new G_Precipitacion(Precipitacion,dias);
+		// g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		// g_p.setBackground(Color.WHITE);
+		// p1.add(g_p);
+		// g_p.setVisible(false);
+		// Humedad
+		g_h = new G_Humedad(Humedad, dias);
+		g_h.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_h.setBackground(Color.WHITE);
+		p1.add(g_h);
+
+		// Temperatura
+		g_t = new G_Temperatura(Temperatura, dias);
+		g_t.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		g_t.setBackground(Color.WHITE);
+		p1.add(g_t);
 
 		// Panel de los botones
 		p2 = new JPanel();
@@ -133,7 +136,7 @@ public class PW extends JFrame implements ActionListener {
 			g_h.setVisible(true);
 			g_p.setVisible(false);
 			g_pr.setVisible(false);
-			g_p.setVisible(false);		
+			g_p.setVisible(false);
 		} else if ((JButton) e.getSource() == b3) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
@@ -147,7 +150,7 @@ public class PW extends JFrame implements ActionListener {
 			g_h.setVisible(false);
 			g_p.setVisible(false);
 			g_pr.setVisible(true);
-			g_p.setVisible(false);			
+			g_p.setVisible(false);
 		} else if ((JButton) e.getSource() == b5) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
@@ -162,8 +165,7 @@ public class PW extends JFrame implements ActionListener {
 		ReadDifference o = new ReadDifference();
 		o.readFtoA();
 		o.init();
-		PW window = new PW(o.velViento.split(","),o.fechas.split(","));
-		
-
+		PW window = new PW(o.velViento.split(","), o.presionAtm.split(","), o.precipitacion.split(","),
+				o.humedad.split(","), o.temperatura.split(","), o.fechas.split(","));
 	}
 }
