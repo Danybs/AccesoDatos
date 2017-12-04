@@ -19,7 +19,7 @@ public class ReadDifference {
 	private ArrayList<C_datos> list = new ArrayList<C_datos>();
 	private C_datos o1;
 	protected String fechas;
-	protected String velViento, presionAtm, precipitacion, humedad, temperatura;
+	protected String velViento="", presionAtm="", precipitacion="", humedad="", temperatura="";
 
 	void readFtoA() {
 		try {

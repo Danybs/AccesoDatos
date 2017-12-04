@@ -63,7 +63,7 @@ public class C_aemet{
 		return tendencia;
 	}
 	public float getHumedad() {
-		return humedad/100;
+		return humedad;
 	}
 	
 }

@@ -61,7 +61,7 @@ public class PW extends JFrame implements ActionListener {
 		p1.setVisible(false);
 
 		// Intro
-
+		
 		// Instanciamos las grafica
 		// Viento
 		g_v = new G_Viento(Viento, dias);
@@ -75,11 +75,10 @@ public class PW extends JFrame implements ActionListener {
 		p1.add(g_pr);
 
 		// //Precipitacion
-		// g_p = new G_Precipitacion(Precipitacion,dias);
-		// g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
-		// g_p.setBackground(Color.WHITE);
-		// p1.add(g_p);
-		// g_p.setVisible(false);
+		 g_p = new G_Precipitacion(Precipitacion, dias);
+		 g_p.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
+		 g_p.setBackground(Color.WHITE);
+		 p1.add(g_p);
 		// Humedad
 		g_h = new G_Humedad(Humedad, dias);
 		g_h.setPreferredSize(new Dimension(getWidth(), (int) (getHeight() / 1.25)));
@@ -126,38 +125,43 @@ public class PW extends JFrame implements ActionListener {
 		if ((JButton) e.getSource() == b1) {
 			p1.setVisible(true);
 			g_v.setVisible(true);
-			g_h.setVisible(false);
-			g_p.setVisible(false);
 			g_pr.setVisible(false);
 			g_p.setVisible(false);
+			g_h.setVisible(false);
+			g_t.setVisible(false);
+			repaint();
 		} else if ((JButton) e.getSource() == b2) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
-			g_h.setVisible(true);
+			g_pr.setVisible(true);
 			g_p.setVisible(false);
-			g_pr.setVisible(false);
-			g_p.setVisible(false);
+			g_h.setVisible(false);
+			g_t.setVisible(false);
+			repaint();
 		} else if ((JButton) e.getSource() == b3) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
-			g_h.setVisible(false);
-			g_p.setVisible(true);
 			g_pr.setVisible(false);
-			g_p.setVisible(false);
+			g_p.setVisible(true);
+			g_h.setVisible(false);
+			g_t.setVisible(false);
+			repaint();
 		} else if ((JButton) e.getSource() == b4) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
-			g_h.setVisible(false);
+			g_pr.setVisible(false);
 			g_p.setVisible(false);
-			g_pr.setVisible(true);
-			g_p.setVisible(false);
+			g_h.setVisible(true);
+			g_t.setVisible(false);
+			repaint();
 		} else if ((JButton) e.getSource() == b5) {
 			p1.setVisible(true);
 			g_v.setVisible(false);
-			g_h.setVisible(false);
-			g_p.setVisible(false);
 			g_pr.setVisible(false);
-			g_p.setVisible(true);
+			g_p.setVisible(false);
+			g_h.setVisible(false);
+			g_t.setVisible(true);
+			repaint();
 		}
 	}
 

@@ -26,7 +26,6 @@ public class G_Presion extends JPanel {
 		this.dias = new String[dias.length];
 		for (int i = 0; i <yValuesInt.length; i++) {
 			yValuesInt[i] = Integer.parseInt(yValues[i]); //Valores
-			yValuesInt[i] = yValuesInt[i]*-1; //Damos valores inversos ya que en la gráfica se representan alreves
 			yValuesInt[i]*=proporcionY;//proporcion
 			yValuesInt[i]+=260;//posicion
 		}
@@ -43,9 +42,6 @@ public class G_Presion extends JPanel {
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
-//		g.fillRect(0, 0, getWidth(), getHeight());
-		
-		
 		//Pie de pagina
 //		g.drawString("Daniel Blanco Sanz Copyright © Todos los Derechos Reservados", initX, finalY+100);
 				

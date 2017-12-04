@@ -66,7 +66,7 @@ public class C_pronostico{
 	}
 
 	public float getHumedad() {
-		return humedad;
+		return humedad*100;
 	}
 
 	public float getTemp() {
